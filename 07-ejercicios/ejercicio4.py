@@ -22,7 +22,8 @@ f"El resultado de la multiplicacion es: {multi}\n"
 f"El resultado de la division es: {divi}\n"
 f"El resultado del resto es: {resto}\n"
 f"El resultado de la exponeciasion es: {expo}");
-"""
+
+#---------------------------------------------------------------
 pregunta = 0
 while pregunta < 3:
     
@@ -37,6 +38,15 @@ f"El resultado de la resta es: {num1 - num2}\n"
 f"El resultado de la multiplicacion es: {num1 * num2}\n"
 f"El resultado de la division es: {num1 / num2}\n"
 f"El resultado del resto es: {num1 % num2}\n"
-f"El resultado de la exponeciasion es: {num1 ** num2}");
-
+f"El resultado de la exponeciasion es: {num1 ** num2}")
 #-------------------------------------------------------------
+"""
+# Ejercicio por Victor
+numero1 = int(input("Introduce primer numero: "))
+numero2 = int(input("Introduce segundo numero: "))
+
+print("### CALCULADORA ###")
+print("Suma: " , numero1+numero2)
+print("Resta: "+ str(numero1-numero2))
+print("Multiplicacion: "+ str(numero1*numero2))
+print("Division: "+ str(numero1/numero2))

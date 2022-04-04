@@ -3,8 +3,8 @@ Ejercicio 6.
 Mostrar todas las tablas de multiplicar del 1 al 10 
 Mostrar el titulo de las tablas y luego las multiplicaciones.
 """
-
-for num in range(1,(10+1)):
+"""
+for num in range(1,11):
     if num == 1:
         print("### TABLA DEL 1")
         for i in range(1,11):
@@ -45,4 +45,14 @@ for num in range(1,(10+1)):
         print("### TABLA DEL 10")
         for i in range(1,11):
             print(f"{num} X {i} = {num*i}")
+"""
+# EJEMPLO POR Victor
+for cabecera in range(1,11):
+    print("#########################")
+    print(f"#####  Tabla del {cabecera}  #####")
+    print("#########################")
     
+    for numero in range(1,11):
+        print(f"{numero} X {cabecera} = {numero*cabecera}")
+    
+    print("\n")

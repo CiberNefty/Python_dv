@@ -5,7 +5,9 @@ entre dos numero que decida el usuario.
 """
 numero1 = int(input("Ingresa primer numero: "))
 numero2 = int(input("Ingresa segundo numero: "))
-
-for contador in range (numero1, numero2):
+pared =str(0)
+for contador in range (numero1, (numero2+1)):
     if contador % 2 == 1:
-        print(str(contador)+"Es impar")
+        pared = pared + ", "+str(contador)
+print(pared)
+        

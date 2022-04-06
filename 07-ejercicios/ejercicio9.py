@@ -12,3 +12,14 @@ while numero != 111:
         break
     else: 
         print(numero)
+#-----------------------------------
+contador=1
+m = str(0)
+while contador < 100:
+    numero = int(input("Introduce un numero: "))
+
+    if numero == 111: 
+        break
+    else:
+        m = m + ", "+str(numero)
+        print(f"has eintroducido : {m}")

@@ -33,12 +33,17 @@ muestraNombres()
 # Un dato que le paso desde afuera hacia la funcion, para poder parametrizar 
 print("####### EJEMPLO 2 ########")
 
-def mostrarTuNombre(nombre):
+def mostrarTuNombre(nombre,edad):
     print(f"Tu nombre es: {nombre}")
 
+    if edad >= 18:
+        print("Y eres mayor de edad")
+
 nombre = input("Introduce tu nombre: ")
+edad = int(input("Introduce tu edad: "))
 #mostrarTuNombre("Jose Peres")
 #mostrarTuNombre("PAquito")
 #mostrarTuNombre("Juanfran")
-mostrarTuNombre(nombre)
+#mostrarTuNombre(nombre,9) # esta es un dato fijo
+mostrarTuNombre(nombre,edad) 
 

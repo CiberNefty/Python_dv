@@ -28,3 +28,17 @@ def muestraNombres():
 muestraNombres()
 muestraNombres()
 muestraNombres()
+#--------------------
+# EJjemplo 2: Parametros
+# Un dato que le paso desde afuera hacia la funcion, para poder parametrizar 
+print("####### EJEMPLO 2 ########")
+
+def mostrarTuNombre(nombre):
+    print(f"Tu nombre es: {nombre}")
+
+nombre = input("Introduce tu nombre: ")
+#mostrarTuNombre("Jose Peres")
+#mostrarTuNombre("PAquito")
+#mostrarTuNombre("Juanfran")
+mostrarTuNombre(nombre)
+

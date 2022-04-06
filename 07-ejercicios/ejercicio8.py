@@ -5,8 +5,15 @@ va hacer a un numero que digie. Ejemplo;
 ¿Cuanto es X por ciento de X numero?
                 20% de 150 
 """
-numero1 = float(input("Ingresa El primer numero como porcentaje: "))
-numero2 = float(input("Ingresa El segundo numero: "))
+numero1 = float(input("Ingresa El numero: "))
+numero2 = float(input(f"Ingresa El porcentaje para sacar de {numero1}: "))
 
 if numero1 > 0.01:
-    print(f"El procentaje de {numero1} de {numero2} es: {(numero1 * numero2)/100}%")
+    print(f"El {numero2}% de {numero1} es: {(numero2 * numero1)/100}")
+#---------------------------------------------
+# Ejercico por Vic
+numero = int(input("Introduce el numero: "))
+porcentaje = int(input(f"¿Que porcentaje quieres sacar de {numero}?:"))
+
+operacion = (numero * (porcentaje/100))
+print(f"El {porcentaje}% de {numero} es: {operacion}")

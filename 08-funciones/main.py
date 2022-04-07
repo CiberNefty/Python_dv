@@ -67,3 +67,46 @@ print("---------------------------------")
 for ntabla in range (1,11):
     tabla(ntabla)
 #-----------------------
+# Ejemplo 4.
+print("\n####### EJEMPLO 4 ########")
+# Parametros opcionales
+def getEmpleado(nombre, dni = None):
+    print("EMPLEADO")
+    print(f"Nombre: {nombre}")
+    if dni != None:
+        print(f"DNI: {dni}")
+
+getEmpleado("Daniel Vera",3232)
+#--------------------------
+# Ejemplo 5. return o devolver datos
+print("\n####### EJEMPLO 5 ########")
+def saludame(nombre):
+    saludo = f"Hola, saludos {nombre}"
+    return saludo
+
+print(saludame("VIctor"))
+#-------------------------
+# Ejemplo 6. 
+# Generar una calculadora en un string
+print("\n####### EJEMPLO 6 ########")
+
+def calculadora(num1, num2, basicas = False):
+    suma = num1 + num2
+    resta = num1 - num2
+    multi = num1 * num2
+    division = num1 / num2
+
+    cadena = ""
+    if basicas != False:
+        cadena += "Suma: "+str(suma)
+        cadena += "\n"
+        cadena += "Resta: "+str(resta)
+    else:
+        cadena += "\n"
+        cadena += "Multiplicacion: "+str(multi)
+        cadena += "\n"
+        cadena += "Division: "+str(division)    
+
+    return cadena
+
+print(calculadora(56,5,True))

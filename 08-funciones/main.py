@@ -128,3 +128,18 @@ def devuelveTodo(nombre,apellidos):
 
 #print(getNombre("Daniel "),getApellidos("Vera")) # Diferencia entre codigo, con la linea siguiente
 print(devuelveTodo("Felipe","Vera Arias"))
+
+# Ejemplo 8. Funciones Lambda
+print("\n####### EJEMPLO 8 ########")
+# La funcion Lambda es una funciona anonima, una funcion anonima que not tiene nombre y no hace falta 
+# definirla con la funcion Def, son funciones que sirven para tareas pequeñas 
+# pero que pueden llegar a serrepetitivas.
+
+# Crear una funcion lambda para que nos muestre el año.
+
+# dime_el_year = lambda year: f"El año es {year}"
+dime_el_year = lambda year: f"El año es {year * 10}"
+# le damos nombre a nuestra funcion, la definimos con lambda luego le damos
+# el parametro y le asignamos algo que devuelve, como ejemplo ese texto del año.
+
+print(dime_el_year(2034))

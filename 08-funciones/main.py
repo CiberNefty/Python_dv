@@ -32,7 +32,7 @@ muestraNombres()
 # EJjemplo 2: Parametros
 # Un dato que le paso desde afuera hacia la funcion, para poder parametrizar 
 print("####### EJEMPLO 2 ########")
-
+"""
 def mostrarTuNombre(nombre,edad):
     print(f"Tu nombre es: {nombre}")
 
@@ -46,4 +46,24 @@ edad = int(input("Introduce tu edad: "))
 #mostrarTuNombre("Juanfran")
 #mostrarTuNombre(nombre,9) # esta es un dato fijo
 mostrarTuNombre(nombre,edad) 
+"""
+#---------------------
+# Ejemplo 3
+print("####### EJEMPLO 3 ########")
+def tabla(numero):
+    print(f"Tabla de multiplicar del numero: {numero}")
+    for contador in range (11):
+        operacion = numero *contador
+        print(f"{numero} * {contador} = {operacion}")
 
+    print("\n")
+
+tabla(3)
+tabla(7)
+tabla(12)
+# Ejemplo 3.1 
+# sacando todas las tablas de multiplicar utilizandoo esta funcion
+print("---------------------------------")
+for ntabla in range (1,11):
+    tabla(ntabla)
+#-----------------------

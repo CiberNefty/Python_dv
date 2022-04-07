@@ -110,3 +110,21 @@ def calculadora(num1, num2, basicas = False):
     return cadena
 
 print(calculadora(56,5,True))
+
+# Ejemplo 7. Funciones dentro de otras funciones
+print("\n####### EJEMPLO 7 ########")
+
+def getNombre(nombre):
+    texto = f"El nombre es: {nombre}"
+    return texto
+
+def getApellidos(apellidos):
+    texto = f"El apellido es: {apellidos}"
+    return texto
+
+def devuelveTodo(nombre,apellidos):
+    texto = getNombre(nombre) +"\n"+ getApellidos(apellidos)
+    return texto
+
+#print(getNombre("Daniel "),getApellidos("Vera")) # Diferencia entre codigo, con la linea siguiente
+print(devuelveTodo("Felipe","Vera Arias"))

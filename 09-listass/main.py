@@ -32,5 +32,8 @@ pelicula = "Otra cosa"
 peliculas[1] = "Gran Torino"
 peliculas[2] = "El hobbit"
 print(peliculas)
+#-------------------------------
 
-
+# Añadir elemento a lista
+cantantes.append("Kase O")
+print(cantantes)

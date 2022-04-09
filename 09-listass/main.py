@@ -36,4 +36,6 @@ print(peliculas)
 
 # Añadir elemento a lista
 cantantes.append("Kase O")
+cantantes.append("Enrique Iglesias")
+
 print(cantantes)

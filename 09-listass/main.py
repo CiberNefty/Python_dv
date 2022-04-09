@@ -49,7 +49,7 @@ for pelicula in peliculas: # Mientras quede en el elementos de pelicula ve iterD
     print(f"{peliculas.index(pelicula)+1}. {pelicula}") """
 
 # Agregando elementos a mi listado para ir sacandolos
-
+"""
 nueva_peliicula = ""
 while nueva_peliicula != "parar":
     nueva_peliicula = input("Introduce la nueva pelucula: ")
@@ -59,4 +59,36 @@ while nueva_peliicula != "parar":
 
 print("\n*******LISTADO PELICULAS*******")
 for pelicula in peliculas: # Mientras quede en el elementos de pelicula ve iterDO y ve guardando cada uno de los elemento en pelicula.
-    print(f"{peliculas.index(pelicula)+1}. {pelicula}")
+    print(f"{peliculas.index(pelicula)+1}. {pelicula}") """
+#----------------------------
+# Listas MULTIDIMENSIONALES
+# Es una lista que contiene una lista dentro de otra lista
+print("\n*******LISTADO DE CONTACTOS*******")
+contactos = [
+    [
+        'Daniel',
+        'daniel@daniel.com'
+    ],
+    [
+        'Pipe',
+        'pipe@pipe.com'
+    ],
+    [
+        'Salvador',
+        'salvador@salvador.com'
+    ]
+]
+"""
+for contacto in contactos:
+    for elemento in contacto:
+        print(elemento)
+    print("\n") """
+
+for contacto in contactos:
+    for elemento in contacto:
+        if contacto.index(elemento) == 0:
+            print("Nombre: "+elemento)
+        else:
+            print("Email: "+elemento)
+    print("\n")
+#print(contactos[1][1]) # Aquí accedemos a nuestra sublista o subdimencion.

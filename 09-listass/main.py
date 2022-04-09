@@ -39,3 +39,24 @@ cantantes.append("Kase O")
 cantantes.append("Enrique Iglesias")
 
 print(cantantes)
+#------------------------------
+# Como recorrer elementos de una lista para utilizarlos con el bucle for
+
+# Recorrer  Lista
+#print("\n*******LISTADO PELICULAS*******")
+"""
+for pelicula in peliculas: # Mientras quede en el elementos de pelicula ve iterDO y ve guardando cada uno de los elemento en pelicula.
+    print(f"{peliculas.index(pelicula)+1}. {pelicula}") """
+
+# Agregando elementos a mi listado para ir sacandolos
+
+nueva_peliicula = ""
+while nueva_peliicula != "parar":
+    nueva_peliicula = input("Introduce la nueva pelucula: ")
+
+    if nueva_peliicula != "parar":
+        peliculas.append(nueva_peliicula)
+
+print("\n*******LISTADO PELICULAS*******")
+for pelicula in peliculas: # Mientras quede en el elementos de pelicula ve iterDO y ve guardando cada uno de los elemento en pelicula.
+    print(f"{peliculas.index(pelicula)+1}. {pelicula}")

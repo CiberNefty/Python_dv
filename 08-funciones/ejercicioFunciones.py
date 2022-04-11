@@ -26,6 +26,9 @@ proyect X decir que no pertenece.
 Este ejercicio debe evaluar los roles principales de un proyecto de TI
 """
 
+from ast import While
+
+
 def stakeholders_fueraDelProyecto():
     #if rol == 'cliente':
         print("ClientE")
@@ -69,5 +72,15 @@ def tabla_multiplicar(numero):
         oper = numero * i
         print(f"{numero} x {i} = {oper}") # Esta es mas lejible de leer
 
+def tabla_multiplicarWhile(numero):
+    contador = 1
+    while contador != 0 and contador <= numero:
+        oper = numero * contador
+        print(f"{numero} x {contador} = {oper}")
+        contador = contador + 1
+
+
 # tabla_multiplicar(2)
+#numero = int(input("Ingresa numero a multiplicar: "))
+#tabla_multiplicarWhile(numero)
 # --------------------------------  

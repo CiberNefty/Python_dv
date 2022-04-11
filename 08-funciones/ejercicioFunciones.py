@@ -58,3 +58,16 @@ def stakeholders(nombre,rol):
 # rol= input("Que rol tienes en la empresa: ")
 #stakeholders(nombre,rol)
 # --------------------------------
+#
+print("\n\t\tEJERCICIO # 3")
+def tabla_multiplicar(numero):
+    print(f"table del {numero}")
+    
+    for i in range(11):
+        operacion = str(numero) + " X "+ str(i)+" = "+ str(numero * i)
+        #print(operacion)
+        oper = numero * i
+        print(f"{numero} x {i} = {oper}") # Esta es mas lejible de leer
+
+# tabla_multiplicar(2)
+# --------------------------------  

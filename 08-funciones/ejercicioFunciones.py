@@ -25,10 +25,6 @@ proyect X decir que no pertenece.
 
 Este ejercicio debe evaluar los roles principales de un proyecto de TI
 """
-
-from ast import While
-
-
 def stakeholders_fueraDelProyecto():
     #if rol == 'cliente':
         print("ClientE")
@@ -83,4 +79,29 @@ def tabla_multiplicarWhile(numero):
 # tabla_multiplicar(2)
 #numero = int(input("Ingresa numero a multiplicar: "))
 #tabla_multiplicarWhile(numero)
+#for ntabla in range(1,11):
+    #tabla_multiplicar(ntabla)
+    print("\n")
 # --------------------------------  
+#       EJERCICIO 4
+# Crear un funcion que imprima las tablas de multiplicar 
+# que el usuario escoja.
+print("\n\t\tEJERCICIO # 4")
+
+def getTablas(numMin = False, numLimit= False):
+    for i in range (numMin, numLimit):
+        oper = numMin * i
+        print(f"{numMin} X {i} = {oper}")
+
+getInput = "d"
+while getInput != "N":
+    numMin = int(input("Ingresa valor para la tabla: "))
+    numLimit = int(input("Cuantas veces quiere que recorra la tabla?: "))
+
+    if numMin != numLimit:
+        getTablas(numMin,numLimit)
+    
+    evaluar = input("Quiere seguir viendo tablas?\n escriba Si o No: ")
+    if evaluar == "No":
+        # break  
+        getInput = "N" #De esta manera puedo interrumpir un programa 

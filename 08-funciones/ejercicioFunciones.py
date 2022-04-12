@@ -110,31 +110,34 @@ while getInput != "N":
 # Ejercicio donde le pida el nombre y por medio de una funcion le retorne una historia dependiendo 
 # de si el primer caracter sea una letra en especifico.
 print("\n\t\tEJERCICIO # 5")
-def historia(nombre):
-    his1 = f"""    El dia que {nombre} entro a la universidad se percato,
+def historia(nombre=''):
+    global his1
+    his1 = f"""H-1    El dia que {nombre} entro a la universidad se percato,
     que su vida cambiaria de la noche a la mañana, transcurrido el
     el primer semestre noto que muchos de los estudiantes desertaron. """
-    his2 = f"""    Luego {nombre} de haber curzado tanto tiempo solo en la u sintio
+    his2 = f"""H-2    Luego {nombre} de haber curzado tanto tiempo solo en la u sintio
     que le hacia falta estar con una mujer, con lo cual tuvo que pagar por una 
     rato de intimidad."""
-    his3 = f"""    Los primeros y utlimos semestres son los mejores, por que te das
+    his3 = f"""H-3    Los primeros y utlimos semestres son los mejores, por que te das
     cuenta que solo es cuestion de atencion en lo que haces y te propones, dentro
     de poco Dios cambiara mi vida, empezare a trabajar para una empresa de TI y
     estare disfrutando mi puesto, por que se que me lo merezco."""
-    """
-    if nombre == 'Daniel':
+    
+    if not nombre.find('D'):
+        his1.upper()
         return his1
-    elif nombre == 'Juan':
+    elif not nombre.find('J'):
         return his2
-    elif nombre = 'Felipe':
+    elif not nombre.find('F'):
         return his3
     else:
-        print(f"{nombre} no cuenta para una historia.") """
+        print(f"{nombre} no cuenta para una historia.")
 
-print(historia("Daniel"))
+#nombre = input('Ingrese nombre: ')
+#print(historia(nombre))
 #-------------------------------
 """     EJERCICIO 6
-Crear funcion que evalue de que continente eson si son de sur america 
+Crear funcion que evalue de que continente es o si son de sur america 
 imprimir 5 paises de igual mododo si es de Europa
 """
 print("\n\t\tEJERCICIO # 6")
@@ -157,7 +160,7 @@ def continentes(continente):
         return america
     else: 
         return europa """
-print(continentes("America"))
+#print(continentes("America"))
 """print("esto es un",end=" *sd+/")
 print("Ejemplo")
 print("1","2","3","4","5", sep="-") """

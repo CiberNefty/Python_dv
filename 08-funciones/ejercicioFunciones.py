@@ -95,13 +95,70 @@ def getTablas(numMin = False, numLimit= False):
 
 getInput = "d"
 while getInput != "N":
-    numMin = int(input("Ingresa valor para la tabla: "))
-    numLimit = int(input("Cuantas veces quiere que recorra la tabla?: "))
+    #numMin = int(input("Ingresa valor para la tabla: "))
+    #numLimit = int(input("Cuantas veces quiere que recorra la tabla?: "))
 
-    if numMin != numLimit:
-        getTablas(numMin,numLimit)
+    #if numMin != numLimit:
+        #getTablas(numMin,numLimit)
     
-    evaluar = input("Quiere seguir viendo tablas?\n escriba Si o No: ")
-    if evaluar == "No":
+    #evaluar = input("Quiere seguir viendo tablas?\n escriba Si o No: ")
+    #if evaluar == "No":
         # break  
         getInput = "N" #De esta manera puedo interrumpir un programa 
+# --------------------------------
+#       EJERCICIO 5
+# Ejercicio donde le pida el nombre y por medio de una funcion le retorne una historia dependiendo 
+# de si el primer caracter sea una letra en especifico.
+print("\n\t\tEJERCICIO # 5")
+def historia(nombre):
+    his1 = f"""    El dia que {nombre} entro a la universidad se percato,
+    que su vida cambiaria de la noche a la mañana, transcurrido el
+    el primer semestre noto que muchos de los estudiantes desertaron. """
+    his2 = f"""    Luego {nombre} de haber curzado tanto tiempo solo en la u sintio
+    que le hacia falta estar con una mujer, con lo cual tuvo que pagar por una 
+    rato de intimidad."""
+    his3 = f"""    Los primeros y utlimos semestres son los mejores, por que te das
+    cuenta que solo es cuestion de atencion en lo que haces y te propones, dentro
+    de poco Dios cambiara mi vida, empezare a trabajar para una empresa de TI y
+    estare disfrutando mi puesto, por que se que me lo merezco."""
+    """
+    if nombre == 'Daniel':
+        return his1
+    elif nombre == 'Juan':
+        return his2
+    elif nombre = 'Felipe':
+        return his3
+    else:
+        print(f"{nombre} no cuenta para una historia.") """
+
+print(historia("Daniel"))
+#-------------------------------
+"""     EJERCICIO 6
+Crear funcion que evalue de que continente eson si son de sur america 
+imprimir 5 paises de igual mododo si es de Europa
+"""
+print("\n\t\tEJERCICIO # 6")
+def continentes(continente):
+    eur1 = "Alemania" 
+    eur2 = "España"
+    eur3 = "Belgica"
+    eur4 = "Francia"
+    eur5 = "Suecia"
+    amer1= "Colombia"
+    amer2= "Panama"
+    amer3= "Peru"
+    amer4= "Argentina"
+    amer5= "Chile"
+    
+    europa = end=eur1,eur2,eur3,eur4,eur5
+    america = end= amer1,amer2,amer3,amer4,amer5
+    """
+    if continentes != "Europa":
+        return america
+    else: 
+        return europa """
+print(continentes("America"))
+"""print("esto es un",end=" *sd+/")
+print("Ejemplo")
+print("1","2","3","4","5", sep="-") """
+# -------------------------------

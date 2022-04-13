@@ -165,6 +165,150 @@ def continentes(continente):
 print("Ejemplo")
 print("1","2","3","4","5", sep="-") """
 # -------------------------------
-frase = '   mi contenido    '
+"""frase = '   mi contenido    '
 print(frase)
 print(frase.strip() and frase.find('m'))
+#------------------------- """
+"""     EJERCICIO 7
+Crear un menu donde el usuario escoja que quiere realizar,
+asu vez realizar variras funciones que cada una contenga:
+- Detectar el tipado 
+- Limpiar espacios
+- Eliminar variables
+- Comprobar variables vacias # por ahora no pude realizarlo
+- Encontrar caracteres 
+- Mayusculas y Minisculas
+* Tener por lo menos una funcion lambda
+"""
+def DetectarType(nombre, edad,peso,year):
+    comprobar = int(input("1. Nombre.\n2. Edad.\n3. Peso\n4. Año\n5. Todas las anteriores\n\nCual dato quieres saber su tipo?:"))
+    if comprobar == 1: 
+        texto = f"{nombre} es de tipo: {type(nombre)}"
+        return texto
+    elif comprobar == 2:
+        texto = f"{edad} es de tipo: {type(edad)}"
+        return texto
+    elif comprobar == 3:
+        texto = f"{peso} es de tipo: {type(peso)}"
+        return texto
+    elif comprobar == 4:
+        texto = f"{year} es de tipo: {type(year)}"
+        return texto
+    elif comprobar == 5:
+        texto = f"{nombre} es de tipo: {type(nombre)}"
+        texto += f"\n{edad} es de tipo: {type(edad)}"
+        texto += f"\n{peso} es de tipo: {type(peso)}"
+        texto += f"\n{year} es de tipo: {type(year)}"
+        return texto
+    else:
+        print("Opcion no resgistrada:")
+
+def LimpiarEspacios():
+    print("Esta funcion de limpiar espacios funciona cuando una variable\n contiene espacios al principio o al final.\n",
+    "\nEjemplo: variable = ___Hola Mundo___\n\nEsta funcion elimina los espacios que se refleja.")
+    limpiar = input("Escribe alguna ejemplo: ")
+    return limpiar.strip()
+
+def EliminarVariable(nombre,edad,peso,year):
+    comprobar =int(input("1. Nombre.\n2. Edad.\n3. Peso.\n4. Año.\n5.Todas.\nQue variable quiere que no se muestre:"))
+    if comprobar == 1:
+        del nombre
+        return edad,peso,year
+    elif comprobar == 2:
+        del edad
+        return nombre,peso,year
+    elif comprobar == 3:
+        del peso
+        return nombre,edad,year
+    elif comprobar == 4:
+        del year
+        return nombre,edad,peso
+    elif comprobar == 5:
+        del nombre,edad,peso,year
+        return f"Eliminaste todas las variables."
+""" Esta funcion me esta mamando huevo, que rabia.
+
+def ComprobarVaciedad(nombre='',edad='',peso=1.5,year=0):
+    if len(nombre) <= 0: 
+        texto = f"La variable nombre esta vacia"    
+        
+
+    if len(edad) <= 0: 
+        texto = f"La variable peso esta vacia"
+        return texto
+
+    if len(peso) <= 0.0: 
+        texto = f"La variable peso esta vacia"
+        return texto
+    if len(year) <= 0: 
+        texto = f"La variable año esta vacia"
+        return texto
+    else: 
+        return f"La variable nombre tiene contenido de {len(nombre)} caracteres.\n", f"La variable nombre tiene contenido de {len(edad)} caracteres.\n","La variable nombre tiene contenido de {len(peso)} caracteres.\n", f"La variable nombre tiene contenido de {len(year)} caracteres."
+ 
+nombre = input('Ingresa el nombre: ')
+edad = int(input('Ingresa la edad: ')) 
+peso = float(input('Ingresa tu  peso: ')) 
+year = int(input('Ingresa el año: '))
+"""
+#---------------------------------------
+def EncontrarCaracter(frase,encontrar = ''):
+    encontrar = input('Desde que posicion empieza: ')
+    texto = frase.find(encontrar)
+    return texto
+
+def MayusMinis():
+    minisMayur = input("Ingresa una frase a convertir: \n")
+    evaluar = int(input("\n1. Mayusculas.\n2. Minusculas\nIngresa la opcion a convertir tu frase: "))
+    
+    if evaluar == 1:
+        return minisMayur.upper()
+    elif evaluar == 2: #otra opcion para mostrar como convertir.
+        minisMayur = minisMayur.lower()
+        return minisMayur 
+    else:
+        return "Opcion no registrada"
+
+#------------------------------------
+print("Ingresa unos valore primero para que se te despliegue un menu.")
+nombre = input("Ingresa Nombre: ")
+edad = int(input("Ingresa Edad: "))
+peso = float(input("Ingresa Peso: ")) # Aqui debi colocar estatura XD
+year = int(input("Ingresa Año: "))
+
+cont_final = 0
+
+while cont_final != 1:
+    if not len(nombre) <= 0 and not len(str(edad)) <= 0 and not len(str(peso)) <= 0 and not len(str(year)) <= 0:
+        print("\n\t*************************")
+        print("\t********  MENU **********")
+        print("\t*************************")
+        print("\t1. Detectar tipado de variables.\n",
+        "\t2. Limpiar espacios.\n",
+        "\t3. Eliminar variables.\n",
+        "\t5. Encontrar caracteres.\n",
+        "\t6. Mayusculas y minisculas.\n",
+        "\t7. Salir.\n", 
+        "\t\t\1 \2 \3 \4 \5 \6")
+
+        menuopciones= int(input("Digita numero Opcion: \n"))
+
+        if menuopciones == 1:
+            print("DECTECTAR TIPO DE VARIABLE\n")
+            print(DetectarType(nombre,edad,peso,year))
+        elif menuopciones == 2:
+            print("LIMPIAR ESPACIOS\n")
+            print(LimpiarEspacios())
+        elif menuopciones == 3:
+            print("ELIMINAR VARIABLES\n")
+            print(EliminarVariable(nombre,edad,peso,year))
+        elif menuopciones == 5:
+            print("ENCONTRAR CARACTERES\n")        
+            frase =input('Ingresa un frase o un texto para que más adelante puedas encontrar la posicion de alguna frase o caracter: ')
+            print(EncontrarCaracter(frase))
+        elif menuopciones == 6:
+            print("MAYUSCULAS Y MAYUSCULAS\n")
+            print(MayusMinis())
+        elif menuopciones == 7:
+            cont_final = 1
+

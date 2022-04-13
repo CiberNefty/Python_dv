@@ -165,3 +165,6 @@ def continentes(continente):
 print("Ejemplo")
 print("1","2","3","4","5", sep="-") """
 # -------------------------------
+frase = '   mi contenido    '
+print(frase)
+print(frase.strip() and frase.find('m'))

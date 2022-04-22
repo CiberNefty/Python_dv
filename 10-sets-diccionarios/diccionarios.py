@@ -24,3 +24,42 @@ print(type(persona))
 print(persona["apellidos"])
 print(persona["instagram"])
 print(persona["nombre"])
+
+# VAmos a combinar una lista con los diccionarios una, espcie de lista multidimensional.
+
+# Lista con diccionarios
+# Esta variable va hacer una lista, dentro de esta lista podemos 
+# tener varios diccionarios, van hacer varios pequeños conjuntos 
+# de datos  pero que tienen un indice asociativo o indice alfanumerico
+# que me permite seleccionar un diccionario.
+# Entonces dentro de nuestra lista definimos diccionarios. 
+contactos = [
+    {
+        'nombre': 'Josfino',
+        'email': 'Josfino@gmail.com',
+    },
+    {
+        'nombre': 'Luis',
+        'email': 'Luis@gmail.com',
+    },
+    {
+        'nombre': 'Salvador',
+        'email': 'Salvador@gmail.com',
+    }
+]
+
+# ACCEDER A UN INDICE
+print(contactos[0]['nombre']) # Aqui ingresa a nuestra lista mandamos a llamar al indice de la lista y luego llamamos a la clave del diccionario
+
+# MODIFICAR EL VALOR
+contactos[0]['nombre'] = 'Josefiñito'
+
+# MOSTRAR EL LISTADO COMPLETO 
+print("\nLISTADO DE CONTACTOS:")
+print("------------------------")
+for contacto in contactos:
+    print(f"Nombre del contacto: {contacto['nombre']}")
+    print(f"Email del contacto: {contacto['email']}")
+    print("---------------------------------------")
+
+print("\nesta es la lista como se ve nomalmente\n"+str(contactos))

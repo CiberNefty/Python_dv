@@ -82,7 +82,8 @@ contactos = [
 for contacto in contactos:
     for elemento in contacto:
         print(elemento)
-    print("\n") """
+    print("\n") 
+    """
 
 for contacto in contactos:
     for elemento in contacto:
@@ -91,4 +92,4 @@ for contacto in contactos:
         else:
             print("Email: "+elemento)
     print("\n")
-#print(contactos[1][1]) # Aquí accedemos a nuestra sublista o subdimencion.
+print(contactos[1][1]) # Aquí accedemos a nuestra sublista o subdimencion.

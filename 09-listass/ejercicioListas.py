@@ -48,10 +48,39 @@ for e in numeros1:
 ciclas = []
 nuevacicla=''
 while nuevacicla != 'stop':
-    nuevacicla = input("Ingrese marca de cicla: ")
+    #nuevacicla = input("Ingrese marca de cicla: ")
 
     if nuevacicla != 'stop':
         ciclas.append(nuevacicla)
     
 for nuevacicla in ciclas:
-    print(f"{ciclas.index(nuevacicla)+1}. {nuevacicla}")
+    intr =(f"{ciclas.index(nuevacicla)+1}. {nuevacicla}")
+
+# EJERCICIO 7
+# Crear una lista con una coleccion de nombre, apellidos, cumpleaños,estatura, para cada usuario minimo 4.
+contactos = [
+    [
+        'Santiago',
+        'Vera',
+        'Febrero 22'
+    ],
+    [
+        'Felipe',
+        'Vera',
+        'Febrero 22'
+    ],
+    [
+        'Andrea',
+        'Jimenez',
+        'Junio 15'
+    ],
+    [
+        'Melisa',
+        'Ortega',
+        'Agosto 9'
+    ]
+
+]
+for contacto in contactos:
+    for elemento in contacto:
+         print(elemento)

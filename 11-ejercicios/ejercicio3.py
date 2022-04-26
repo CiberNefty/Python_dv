@@ -10,3 +10,13 @@ if len(variable) <= 0:
     print(variable.upper())
 else:
     print("No esta vacia la variable: " + variable)
+
+# -------------------------------
+# Ejercicio por CIV
+texto = ""
+
+if len(texto.strip()) <= 0:
+    texto = "Hola soy un texto en minusculas"
+    print(texto.upper())
+else:
+    print("La la variable tiene contenido: " + texto)

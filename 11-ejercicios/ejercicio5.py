@@ -9,23 +9,21 @@ PUGB        Prince of persia    MOTO GP 21
 - Guardarla en un listado de disccionarios
 - Mostrar esta informacion ordenada
 """
-tablaJuegos = [
+tablaJuegos = [ # Entonces tenemos una lista de disccionarios y dentro de los diccionarios tenemos una lista.
     {
-        'Accion': 'GTA',
-        'Accion': 'COD',
-        'Accion': 'PUGB',
+        'categoria': 'ACCION',
+        'juegos': ['GTA', 'COD', 'PUGB'],
     },
     {
-        'AVENTURA': 'ASSASINS',
-        'AVENTURA': 'CRASH',
-        'AVENTURA': 'Prince of persia'
+        'categoria': 'AVENTURA',
+        'juegos': ['ASSASINS', 'CRASH','Prince of Persia']   
     },
     {
-        'DEPORTES': 'FIFA 21',
-        'DEPORTES': 'PRO 21',
-        'DEPORTES': 'MOTO GP 21'
+        'categoria': 'DEPORTER',
+        'juegos': ['FIFA 21','PRO 21','MOTO GP 21']
     }
-
 ]
-for tablaGames in tablaJuegos:
-    print(f"ACCION\n{tablaGames['ACCION']['AVENTURA']}")
+for categoria in tablaJuegos: # Recorreme toda la tabla y en cada iteracion creame una variable categoria.
+    print(f"---------------- {categoria['categoria']} ----------------")
+    for juego in categoria['juegos']: # significa que recorra la lista de juegos y vaya creando la variable juego en cada vuelta que demos a esa lista
+        print(juego)

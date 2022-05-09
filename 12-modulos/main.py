@@ -20,7 +20,17 @@ la palabra import mi modulo
 """
 
 # Importar modulo propio
-import mimodulo
+#import mimodulo
+# Imaginemos que solo queremos importar solo una funcion de nuestro modulo
+# No queremos usar todas solo una.
+from mimodulo import holamundo
+
 
 # Invocar modulo
-print(mimodulo.holamundo('Daniel Vera'))
+#print(mimodulo.holamundo('Daniel Vera'))
+#print(mimodulo.calculadora(1,4,True))
+
+# para llamar a mi funcion solamente sin llamar al archivo (ó Modulo)
+print(holamundo('Juan fe')) # Aqui solo llamamos a nuestra funcion que se encuentra en nuestro modulo.
+
+

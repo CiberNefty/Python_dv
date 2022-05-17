@@ -46,8 +46,8 @@ print(cantantes)
 #print("\n*******LISTADO PELICULAS*******")
 """
 for pelicula in peliculas: # Mientras quede en el elementos de pelicula ve iterDO y ve guardando cada uno de los elemento en pelicula.
-    print(f"{peliculas.index(pelicula)+1}. {pelicula}") """
-
+    print(f"{peliculas.index(pelicula)+1}. {pelicula}") 
+"""
 # Agregando elementos a mi listado para ir sacandolos
 """
 nueva_peliicula = ""

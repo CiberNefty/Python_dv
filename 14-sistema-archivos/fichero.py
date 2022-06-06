@@ -52,5 +52,19 @@ ruta_nueva = str(pathlib.Path().absolute())+'/fichero_copiado__NUEVA.txt'
 
 shutil.move(ruta_original, ruta_nueva) # Utilizamos un metodo de shutil que se llama move, ha esta funcion le paso dos parametros la ruta original y la ruta nueva
 """
-# Eliminar a
+# Eliminar archivo
+"""import os
 
+ruta_nueva = str(pathlib.Path().absolute())+'/fichero_copiado__NUEVA.txt'
+os.remove(ruta_nueva)
+"""
+# Comprobar si existe
+import os.path # Este modulo nos permite comprobar si existe un directorio
+#print(os.path.abspath("./"))
+ruta_comprobar = os.path.abspath("./") + "/fichero_txt1.txt"
+ruta_comprobar = './fichero.py'
+
+if os.path.isfile(ruta_comprobar): # podemos comprobar si un fichero existe o no
+    print('El archivo existe')
+else:
+    print('El archivo no existe')

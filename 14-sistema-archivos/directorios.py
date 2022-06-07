@@ -18,3 +18,13 @@ shutil.copytree(ruta_original, ruta_nueva)
 """
 os.rmdir('./mi_carpeta_COPIADA')
 """ 
+"""Tambien podemos listar los archivos que hay dentro de una carpeta carpeta
+
+y, podmeos listar lo que tenga dentro de la carpeta
+"""
+print("Contenido de mi carpeta:")
+contenido = os.listdir("./mi_carpeta") # listame todo lo que tengas dentro de mi directorio
+
+# Ya que tengamos todo el contenido de nuestra carpeta podemos hacer un for.
+for fichero in contenido:
+    print("Fichero: ",fichero)

@@ -58,18 +58,22 @@ print(mostrarLista(numeros))
 print("#### MOSTRAR LONGITUD ####")
 print(len(numeros))
 
-# Busqueda en la Lista
-print("#### Busqueda en la lista ####")
+try:
+    # Busqueda en la Lista
+    print("#### Busqueda en la lista ####")
 
-busqueda = int(input("Introduce el numero: "))
+    busqueda = int(input("Introduce el numero: "))
 
-comprobar = isinstance(busqueda, int)
-while not comprobar or busqueda <= 0:
-     busqueda = int(input("Introduce el numero: "))
-else:
-    print(f"Has introducito el {busqueda}")
+    comprobar = isinstance(busqueda, int)
+    while not comprobar or busqueda <= 0:
+        busqueda = int(input("Introduce el numero: "))
+    else:
+        print(f"Has introducito el {busqueda}")
 
-print(f"### Buscar en la lsita el numero {busqueda} ###")
+    print(f"### Buscar en la lsita el numero {busqueda} ###")
 
-search = numeros.index(busqueda)
-print(f"El numero buscado existe en la lista, es el indice: {search}")
+
+    search = numeros.index(busqueda)
+    print(f"El numero buscado existe en la lista, es el indice: {search}")
+except:
+    print('El numero no esta en la lista')

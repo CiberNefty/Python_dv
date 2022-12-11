@@ -16,7 +16,8 @@ finally: # la Instruccion finally siempre se va a ejecutar
     print('FIn de la iteracion')"""
 
 # MULTIPLES EXCEPCIONES
-"""try:
+"""
+try:
     numero = int(input('Numero para elevarlo al cuadrado: '))
     print("El cuadrado es: "+str(numero*numero))
 except TypeError: #Aqui capturamos la excepcion que queremos.
@@ -26,7 +27,7 @@ except TypeError: #Aqui capturamos la excepcion que queremos.
     # Podemos capturar los errores para que se muestren de una manera mas amigable
 except Exception as e: # Podemos guardar una excepcion en una variable luego despues del as.
     print(type(e)) # Podemos mostrar la excepcion con type(nombre de la variable que contiene el error.)
-    print('Ha ocurrido un error: ',type(e).__name__)
+    print('Ha ocurrido un error: ',type(e). __name__)
 """
 
 # EXCEPCIONES PERSONALIZADAS O LANZAR EXCEPCIONES

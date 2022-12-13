@@ -18,12 +18,25 @@ class Coche:
     # Caracteristicas del coche.
     color = 'Rojo'
     marca = 'Ferrari'
-    modelos = 'Aventador'
+    modelo = 'Aventador'
     velocidad = 300
     caballaje = 500
     plazas = 2 # Asientos
 
     # Metodos, son acciones que hace el objeto (coche) (Funciones)
+
+    # Podemos modificar el color del coche con setter.
+    def setColor(self, color):# Para poder modificar el valor de una propiedad, tenemos que agregarle un par de argumentos, el primero seria el parametro self y luego la propiedad que queremos cambiar.
+        self.color = color
+
+    def getColor(self):
+        return self.color
+
+    def setModelo(self, modelo):
+        self.modelo = modelo
+
+    def getModelo(self):
+        return self.modelo
 
     def acelerar(self):
         self.velocidad += 1
@@ -41,16 +54,28 @@ coche = Coche() # De esta manera creamos un objeto, creando una variable donde g
 
 print(coche) # Invocamos obejto.
 
-# Si queremos sacar el valor de una propiedad, al ser propiedades publicas
-print(coche.marca)
-print(coche.marca, coche.color)
-print('Velocidad actual: ', coche.velocidad)
+#Cambiamos el color, el modelo del coche.
+coche.setColor('Amarillo')
+coche.setModelo('F40')
 
+# Si queremos sacar el valor de una propiedad, al ser propiedades publicas
+#print(coche.marca)
+print(coche.marca, coche.getModelo(), coche.getColor())
+#print('Velocidad actual: ', coche.velocidad) # En lugar de sacar la velocidad de esta manera la podemos sacar con la funcion que creamos que retorna la velocidad, como a continuacion.
+print('Velocidad actual: ',coche.getVelocidad())
 # Llamar metodos
+# Estos metodos serian metodos setter por que le asignar un valor a la propiedad
 coche.acelerar()
 coche.acelerar()
 coche.acelerar() 
 coche.acelerar() # Aqui estamos llamando al metodo acelerar varias veces y aumentara en 1 cada vez que se llame el metodo.
 coche.frenar() # Aquí el metodo frenar disminuira la velocidad en 1.
 
-print('Velocidad nueva: ', coche.velocidad)
+#print('Velocidad nueva: ', coche.velocidad)
+print('Velocidad nueva: ', coche.getVelocidad())
+
+# ---------------------------
+# Para llamar a una propiedad de una manera correcta es mejor utilizar 
+# los  metodos de getter  y setter
+# El metodo getter es para sacar un valor.
+# EL metodo setter es para asignarle un valor.

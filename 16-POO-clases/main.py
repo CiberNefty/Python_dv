@@ -51,7 +51,7 @@ class Coche:
 
 # Crear objetos / Instanciar la clase
 coche = Coche() # De esta manera creamos un objeto, creando una variable donde guardaremos nuestra clase que contiene metodos.
-
+print("----- obj COCHE 1")
 print(coche) # Invocamos obejto.
 
 #Cambiamos el color, el modelo del coche.
@@ -79,3 +79,20 @@ print('Velocidad nueva: ', coche.getVelocidad())
 # los  metodos de getter  y setter
 # El metodo getter es para sacar un valor.
 # EL metodo setter es para asignarle un valor.
+
+#- --------------------------
+#  MULTIPLES OBJETOS
+
+print("------------------------")
+print("----- obj COCHE 2")
+# recordar que la clase son moldes para definir multiples objetos
+
+# Crear mas obejtos
+
+coche2 = Coche()
+
+coche2.setColor('Azul')
+coche2.setModelo('Gallardo')
+
+print(coche2.marca, coche2.getModelo(), coche2.getColor())
+print(type(coche2))

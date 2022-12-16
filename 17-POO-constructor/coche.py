@@ -17,6 +17,9 @@ class Coche:
     velocidad = 300
     caballaje = 500
     plazas = 2 # Asientos
+
+    soy_publico = 'Hola, soy un atributo publico'
+    __soy_privado = 'Hola, soy un atributo privado' # Si le colocamos guin bajo, guion bajo ya definimos nuestro atributo como privado.
     
     # CONSTRUCTOR
     def __init__(self,color,marcar,modelo,velocidad,caballaje,plazas):
@@ -27,6 +30,10 @@ class Coche:
         self.plazas = plazas
 
     # Metodos, son acciones que hace el objeto (coche) (Funciones)
+
+    def getPrivado(self):
+        return self.__soy_privado
+
     # Podemos modificar el color del coche con setter.
     def setColor(self, color):# Para poder modificar el valor de una propiedad, tenemos que agregarle un par de argumentos, el primero seria el parametro self y luego la propiedad que queremos cambiar.
         self.color = color

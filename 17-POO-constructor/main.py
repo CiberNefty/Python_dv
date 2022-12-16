@@ -28,8 +28,20 @@ print(carro3.getInfo())
 # Como detectar el tipado de un objeto.
 # DETECTAR TIPADO
 
-carro3 = 'Daniel'
+#carro3 = 'Daniel'
 if type(carro3) == Coche:
     print('Es un objeto correcto !!')
 else:
     print('No es un objeto !!')
+
+# Visibilidad
+"""Dentro de una clase nosotro podemos definir nuestros atributos como ublicos ó
+privados en funcion de la visibilidad que tenga en el resto del codigo, es
+decir si!, nosotros creamos atributos publicos como viene por defecto en una 
+clase en Python, estas propiedades o metodos pueden ser accesibles desde dentro
+o fuera de la clase."""
+
+print(carro.soy_publico)
+#print(carro.__soy_privado)
+# Para acceder a un atributo que es privado lo correcto seria crear un metodo get
+print(carro.getPrivado()) # Aqui nos muestra el atributo que esta definido como privado.

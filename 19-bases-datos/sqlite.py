@@ -33,7 +33,29 @@ cursor.execute("CREATE TABLE IF NOT EXISTS productos("+
 # GUARDAR CAMBIOS
 conexion.commit()
 
+# INSERRT DATOS
+#cursor.execute("INSERT INTO productos VALUES (null, 'Primer producto','Descripcion de mi producto',540);")
+cursor.execute("INSERT INTO productos VALUES (null, 'Segundo producto','Descripcion de mi producto',540);")
+conexion.commit()
 
+# Lesctura Listar Datos
+cursor.execute("SELECT * FROM productos;")
+productos = cursor.fetchall()
+
+"""for producto in productos:
+    print(producto[1]) # Aqui accedemos como si fuera una lista, nos motrara la primera columna.
+"""
+for producto in productos:
+    print("id: ",producto[0])
+    print("Titulo: ",producto[1])
+    print("Descripcion: ",producto[2])
+    print("Precio: ",producto[3])
+    print('\n')
+
+# Sacar primer registro de la table.
+cursor.execute("SELECT id, titulo FROM productos;")
+producto = cursor.fetchone()
+print(producto)
 
 # Tenemos que cerrar la conexion por que si no la cerramos el fichero se quedara abierto y no se guardaran los cambios en el fichero.
 # CERRAR CONECXION

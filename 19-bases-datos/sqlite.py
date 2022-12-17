@@ -21,13 +21,14 @@ conexion = sqlite3.connect('pruebasqlite.db')
 cursor = conexion.cursor() # De esta manera puedo ejecutar consultas.
 
 # CREATE TABLE
-cursor.execute("CREATE TABLE IF NOT EXISTS productos("+
-"id INTEGER PRIMARY KEY AUTOINCREMENT, " + # Aqui en sqlite el auto_increment va todo pegado (AUTOINCREMENT)
-"titulo varchar(255), "+
-"descripcion text, "+
-"precio int(255)"+
-#"CONSTRAINT producto_pkey PRIMARY KEY (producto)"+
-");")
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS productos(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,  -- Aqui en sqlite el auto_increment va todo pegado (AUTOINCREMENT)
+    titulo varchar(255), 
+    descripcion text, 
+    precio int(255)
+-- CONSTRAINT producto_pkey PRIMARY KEY (producto)
+);""")
 
 """Evidenteme no me genera error, pero para que quede guardado tengo que hacer un commit."""
 # GUARDAR CAMBIOS
@@ -35,8 +36,29 @@ conexion.commit()
 
 # INSERRT DATOS
 #cursor.execute("INSERT INTO productos VALUES (null, 'Primer producto','Descripcion de mi producto',540);")
+"""
 cursor.execute("INSERT INTO productos VALUES (null, 'Segundo producto','Descripcion de mi producto',540);")
 conexion.commit()
+"""
+
+# WHO borrar Regisstros d  una tabla
+cursor.execute("DELETE FROM productos;") 
+conexion.commit()
+# INceRTAR Mucchos REGISTROS DE GOLPE.
+productos = [
+    ('Ordenador Portatil','Buena Portatil',700),
+    ('Telefono Movil','Buena Telefono',140),
+    ('Placa Base','Buena Placa',80),
+    ('Tablet 15','Buena Tablet',340),
+]
+# El Metodo Executemany nos permite ejecutar muchas consultas  de golpe.
+# Aqui le estamos diciendo que agrege los valores de null como autoinclrement que esta definido y, los signos de interrogacion (?) se van a cambiar por lo que haya en la lista productos.
+cursor.executemany('INSERT INTO productos VALUES (null,?,?,?)', productos)
+# Luego toca guardar con commit.
+conexion.commit()
+
+# Actuallity Update
+cursor.execute('UPDATE productos SET precio = 678 WHERE precio = 80;')
 
 # Lesctura Listar Datos
 cursor.execute("SELECT * FROM productos;")

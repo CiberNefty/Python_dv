@@ -83,3 +83,7 @@ print(producto)
 # CERRAR CONECXION
 conexion.close()
 
+""""Aviso: Solo es necesario que instalemos WAMP Server, para tener MySQL disponible, no es necesario que instales Netbeans,
+ eso te lo puedes saltar.
+Wamp Server puedes conseguirlo aquí:
+https://sourceforge.net/projects/wampserver/"""

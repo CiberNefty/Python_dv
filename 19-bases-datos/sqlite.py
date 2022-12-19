@@ -87,3 +87,4 @@ conexion.close()
  eso te lo puedes saltar.
 Wamp Server puedes conseguirlo aquí:
 https://sourceforge.net/projects/wampserver/"""
+d

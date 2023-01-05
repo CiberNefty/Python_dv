@@ -86,5 +86,12 @@ conexion.close()
 """"Aviso: Solo es necesario que instalemos WAMP Server, para tener MySQL disponible, no es necesario que instales Netbeans,
  eso te lo puedes saltar.
 Wamp Server puedes conseguirlo aquí:
-https://sourceforge.net/projects/wampserver/"""
-d
+https://sourceforge.net/projects/wampserver/
+
+Para trabajar solo con el motor de Mysql tocaria instalar el modulo:
+https://pypi.org/project/mysql-connector-python/
+
+en esta pagina nos dira que instalemos desde consola este modulo, este seria el codigo para la consola:
+pip install mysql-connector-python
+"""
+

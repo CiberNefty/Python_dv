@@ -80,3 +80,9 @@ print('-------------------')
 cursor.execute("SELECT * FROM vehiculos WHERE precio <= 5000 OR marca LIKE '_E%'")
 coche = cursor.fetchone()
 print(coche)
+
+"""-------------------------------------------------
+Ya que podemos utilizar la insercion tambien podemos realizar el DELETE"""
+
+cursor.execute("DELETE FROM vehiculos WHERE marca LIKE 'Reanult'")
+database.commit()

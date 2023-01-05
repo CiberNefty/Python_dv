@@ -47,3 +47,17 @@ cursor.execute("SHOW TABLES")
 # print(cursor.fetchall())
 for table in cursor:
     print(table)
+
+# INSERTAR DATOS
+#cursor.execute("INSERT INTO vehiculos VALUES(null,'Opel','Astra', 18500)")
+coches = [
+    ('Seat','Ibiza', 5000),
+    ('Reanult','Clio', 15000),
+    ('Chevrolet','Onix', 6000),
+    ('Ford','Ranger', 5000)
+]
+cursor.executemany("INSERT INTO vehiculos VALUES (null, %s, %s, %s);", coches)
+# Recordar que toca guardar los datos ya que si no hacemos el commit no se nos guardara nada de lo que escribamos aquí.
+# cursor.commit() # Recordemos que el atributo lo tiene es la db 
+"Guardar cambios en la db que tiene nuestro cursor."
+database.commit()

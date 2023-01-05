@@ -56,8 +56,27 @@ coches = [
     ('Chevrolet','Onix', 6000),
     ('Ford','Ranger', 5000)
 ]
-cursor.executemany("INSERT INTO vehiculos VALUES (null, %s, %s, %s);", coches)
+#cursor.executemany("INSERT INTO vehiculos VALUES (null, %s, %s, %s);", coches)
 # Recordar que toca guardar los datos ya que si no hacemos el commit no se nos guardara nada de lo que escribamos aquí.
 # cursor.commit() # Recordemos que el atributo lo tiene es la db 
 "Guardar cambios en la db que tiene nuestro cursor."
 database.commit()
+
+# SELECT Y WHERE
+cursor.execute("SELECT * FROM vehiculos WHERE precio <= 5000 OR marca LIKE '_E%'")
+# Sacar todos los datos que tengo, donde la guardamos en una variable
+result = cursor.fetchall()
+
+print("---- TODOS MIS COCHES ----")
+"""for coche in result:
+    print(coche)"""
+
+# Podemos acceder un dato en concreto
+for coche in result:
+    print(coche[1], coche[2], coche[3])
+
+print('-------------------')
+# Con la funcion me permite saca lo que seria el primer registro que encuentre.
+cursor.execute("SELECT * FROM vehiculos WHERE precio <= 5000 OR marca LIKE '_E%'")
+coche = cursor.fetchone()
+print(coche)

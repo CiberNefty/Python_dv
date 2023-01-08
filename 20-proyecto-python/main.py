@@ -12,6 +12,7 @@ PROYECTO Python y Mysql:
 - Si elegimos login, identifica al usuario y nos preguntara
 - Crear nota, mostrar notas, borrarlas.
 """
+from usuarios import acciones # Estamos importando el modulo acciones desde el paquete usuarios.
 
 print("""
 Acciones disponibles:
@@ -19,16 +20,12 @@ Acciones disponibles:
     - Login
 """)
 
+hazel = acciones.Acciones() # Aqui tenemos un objeto que es el instaciador de la clase.
 # Haremos una variable donde preguntara la accion que desee el usuario.
 accion = input('¿Que quiere hacer?: ')
 
 if accion == 'registro':
-    print("\nOk! Vamos a registrarte en el sistema...")
-    nombre = input('Cual es tu nombre?: ')
-    apellidos = input('Cuales son tus apellidos?: ')
-    mail = input('Introduce email: ')
-    password = input('Introduce tu contraseña: ')
+    hazel.registro() # Aqui llamamos a el objeto y luego nos invocara lo que es el metodo registro.
+    
 elif accion == 'login':
-    print("\nVale! Identificate en el sistema...")
-    mail = input('Introduce email: ')
-    password = input('Introduce tu contraseña: ')
+    hazel.login()

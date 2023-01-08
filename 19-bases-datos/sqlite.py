@@ -12,7 +12,8 @@ simplemente el modulo ya viene, esa DB se guarda en un archivo, vamos a conectar
 import sqlite3
 
 # CONECXION
-conexion = sqlite3.connect('pruebasqlite.db')
+#conexion = sqlite3.connect('pruebasqlite.db') # Ya que tenenmos el connect, esta funcion nos permitira crear la BD en la carpeta principal en la raiz de todo el proyecto. Si queremos que nos cree en una carpeta en concreto tenemos que indicarle el ./direcciondelaDB como acontinuacion.
+conexion = sqlite3.connect('./19-bases-datos/pruebasqlite.db')
 
 #Lo primero que tenemos que tener para crear una tabla, es que tenemos que crear un cursor,
 # El cursos lo que me va a permitir es ejecutar las consultas.

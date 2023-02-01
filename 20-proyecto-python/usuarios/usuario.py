@@ -32,11 +32,15 @@ class Usuario:
         sql = 'INSERT INTO usuarios VALUES (null,%s,%s,%s,%s,%s);'
     # Los porcentajes eese(%s) nos sirve para sustituir datos que tengamos en una tapla.
         usuario = (self.nombre, self.apellidos, self.mail, self.password, fecha)
-        cursor.execute(sql, usuario)
-        database.commit()
-        
+        try:
+            cursor.execute(sql, usuario)
+            database.commit()
+            result =[cursor.rowcount, self]
+        except:
+            result = [0, self]
         # Vamos a devolver una lista de la cantidad de registros que se han modificado.
-        return [cursor.rowcount, self]
+        
+        return result
         # Listo toca probarlo, ahora nos vamos al modulo acciones y tengo que importar el modelo de usuario que esta en el dicho paquete usuarios 
 
 

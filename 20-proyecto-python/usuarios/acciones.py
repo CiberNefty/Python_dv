@@ -15,9 +15,9 @@ class Acciones:
         registroUdb = usuario.registrar()
 
         if registroUdb[0] >= 1: # Esta comprobacion esta evaluando lo que retorna el metodo registrar.
-            print(f"Perfecto {registroUdb[1].nombre}  te has registrado con el email {registroUdb[1].mail}")
+            print(f"\nPerfecto {registroUdb[1].nombre}  te has registrado con el email {registroUdb[1].mail}")
         else:
-            print("No te has registrado correctamente")
+            print("\nNo te has registrado correctamente")
 
     def login(self):
         print("\nVale! Identificate en el sistema...")

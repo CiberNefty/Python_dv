@@ -45,4 +45,18 @@ class Usuario:
 
     def identificar(self):
     # Este metodo nos devolvera el objeto usuario que estemos identificando, en base a los datos que tenemos en las propiedades.
-        return self.nombre
+       
+        # Consulta para comprobar si existe el usuario y luego ciframos la contraseña
+        sql = 'SELECT * FROM usuarios WHERE mail = %s AND password = %s'
+
+        # Cifrar contraseña 
+        cifrado = hashlib.sha256()
+        cifrado.update(self.password.encode('utf8'))
+
+        # Datos para la consulta       
+        usuario = (self.mail, cifrado.hexdigest())
+
+        cursor.execute(sql, usuario)
+        result = cursor.fetchone() # el fetchone es para que solo nos devuelva un usuario
+
+        return result

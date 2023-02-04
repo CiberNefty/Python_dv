@@ -21,5 +21,18 @@ class Acciones:
 
     def login(self):
         print("\nVale! Identificate en el sistema...")
-        mail = input('Introduce email: ')
-        password = input('Introduce tu contraseña: ')
+        
+        try:
+            mail = input('Introduce email: ')
+            password = input('Introduce tu contraseña: ')
+
+            usuario = modelo.Usuario('','', mail, password)
+            login = usuario.identificar()
+
+            # Comprobar si el login es correcto
+            if mail == login[3]:
+                print(f"\nBienvenido {login[1]}, te has registrado en el sistema el {login[5]}")
+        except Exception as e:
+            print(type(e))
+            print(type(e).__name__)
+            print(f"Login incorrecto! intentalo mas tarde.")        

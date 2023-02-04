@@ -2,21 +2,14 @@
 y que cada uno obtenga valores diferente y ademas me va a permitir reutilizar y tener 
 mas limpio mi codigo por que creare un objeto usuario que va a tener muchos metodos utilez.
 """
-import mysql.connector
+
 import datetime
 import hashlib # importamos este modulo para poder cifrar las contraseñas que tengamos en texto plano en el motor de BD
+import usuarios.conexion as conexion # Aquí importamos el modulo para poder conectar a la DB 
 
-database = mysql.connector.connect(
-    host='localhost',
-    port=3306,
-    user='root',
-    passwd='',
-    database="proyectonotas_python"
-)
-#Verificamos si funciona la coneccion 
-print(database)
-
-cursor = database.cursor(buffered=True) # Este buffered me va a permitir hacer muchas consultas usanndo el mismo cursor
+connect = conexion.conectar() # creamos una objeto para poder utilizar nuestro metodo conectar_db
+database = connect[0] # Creamos otro objeto para utilizar el indice que nos devuelve la funcion(metodo) conectar_db()
+cursor = connect[1] 
 
 class Usuario:
     def __init__(self,nombre,apellidos,mail,password):

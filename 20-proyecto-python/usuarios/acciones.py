@@ -63,4 +63,4 @@ class Acciones:
         elif accion == 'salir':
             print(f'ok {usario[1]}, hasta pronto!')
             exit ()
-        return None        
+        return None     

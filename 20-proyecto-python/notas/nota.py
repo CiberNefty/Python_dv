@@ -7,7 +7,7 @@ cursor = connect[1]
 
 class Nota:
     
-    def __init__(self,usuario_id, titulo, descripcion):
+    def __init__(self,usuario_id, titulo = "", descripcion = ""):
         self.usuario_id = usuario_id # Este seria el usuario identificado.
         self.titulo = titulo # Es el titulo que rellena el usuario.
         self.descripcion = descripcion # Que es la descripcion que el usuario nos meta.
@@ -22,3 +22,13 @@ class Nota:
         database.commit()
 
         return [cursor.rowcount(), self ]
+
+    def listar(self):
+        # Este metodo se encargara de hacer un select a la DB
+
+        sql = f"SELECT * FROM notas WHERE usuario_id = {self.usuario_id}"
+
+        cursor.execute(sql)
+        result = cursor.fetchall() # Sacaremos todos los datos que nos muestre esa cosulta
+
+        return result

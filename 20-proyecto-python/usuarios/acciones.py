@@ -55,7 +55,7 @@ class Acciones:
             hazEl.crear(usario)
             self.proximasAcciones(usario)
         elif accion == 'mostrar':
-            print('vamos a mostrar')
+            hazEl.mostrar(usario)
             self.proximasAcciones(usario)
 
         elif accion == 'eliminar':

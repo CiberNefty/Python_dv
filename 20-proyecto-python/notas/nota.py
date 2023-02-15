@@ -32,3 +32,12 @@ class Nota:
         result = cursor.fetchall() # Sacaremos todos los datos que nos muestre esa cosulta
 
         return result
+
+    def eliminar(self):
+        sql = f"DELETE FROM notas WHERE usuario_id = {self.usuario_id} AND titulo LIKE '%{self.titulo}%';"
+
+        cursor.execute(sql)
+        database.commit()
+
+        # Devolvemos la cantidad de filas afectadas
+        return [cursor.rowcount(), self]

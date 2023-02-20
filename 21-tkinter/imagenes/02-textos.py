@@ -28,11 +28,15 @@ texto.config(
 )
 texto.pack(anchor=E) # Mover texto
 
-texto = Label(ventana, text = 'Trabajando con Master Python')
+# Podemos crear un metodo para ejecutarlo en un objeto en este caso Label
+def pruebas(nombre, apellido, pais):
+    return f"Hola {nombre} {apellido} eres de pais: {pais}"
+
+texto = Label(ventana, text = pruebas(pais='USA',apellido = ' Arias', nombre='Felipe'))
 texto.config(
     #width=10,
     height=3,
-    bg='red',
+    bg='#FFCEEF',
     font=('Arial', 18),
     padx=10, # Margen en X
     pady=20, # Margen en Y

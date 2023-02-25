@@ -16,7 +16,18 @@ marco.config( # Tenemos que agregarle unos estilos para poder observar
 marco.pack(side=LEFT, anchor='sw')
 marco.pack_propagate(FALSE) # Evita que se contraiga su tamaño original
 
-Label(marco, text='Primer marco').pack(side=BOTTOM, anchor=CENTER)
+texto = Label(marco, text='Primer marco')
+texto.config(
+    background='red',
+    foreground='White',
+    font=('Arial', 20),
+    #height=10,
+    #width=10,
+    #borderwidth=3,
+    #relief=SOLID,
+    #anchor=CENTER
+)
+texto.pack(anchor=CENTER, fill=Y, expand=YES)
 
 marco = Frame(marco_padre, width=250, height=250)
 marco.config(

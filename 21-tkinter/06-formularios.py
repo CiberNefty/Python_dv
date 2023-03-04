@@ -49,4 +49,12 @@ campo_grande.config(
     padx=15, pady=15
 )
 
+# Botones
+Label(ventana).grid(row=4, column=1)
+
+boton = Button(ventana, text="Enviar")
+boton.grid(row = 5, column = 1, sticky=W)
+boton.config(padx=10, pady=10, bg='green', fg="white") 
+
+
 ventana.mainloop()

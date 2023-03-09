@@ -12,21 +12,36 @@ ventana.title = "Ejercicio completo con Tkinter | DV"
 ventana.geometry('400x400')
 ventana.config(bd=25)
 
+# Para que no tenga que capturar los errores en cada funcion puedo hacer lo siguiente:
+def convertirFloat(numero):
+    try:
+        result = float(numero)
+    except:
+        result = 0
+        MessageBox.showerror('Error','Introduce bien los datos')
+
+    return result
+
 def sumar():
-    # Como es un stringvar tengo que usar el metodo set y de hay paso la operacion que vaya hacer.
-    resultado.set(float(num1.get()) + float(num2.get())) # Con esto sacamos los numeros que hay en num1 y num2 con get luego como de texto String los convertimos en algun nuemero.
-    mostrarResultado()
+    #try:
+        # Como es un stringvar tengo que usar el metodo set y de hay paso la operacion que vaya hacer.
+        resultado.set(convertirFloat(num1.get()) + convertirFloat(num2.get())) # Con esto sacamos los numeros que hay en num1 y num2 con get luego como de texto String los convertimos en algun nuemero.
+        mostrarResultado()
+#    except:
+#        MessageBox.showerror('Error','Introduce bien los datos')
+#        num1.set("")
+#        num2.set("")
 
 def restar():
-    resultado.set(float(num1.get()) - float(num2.get()))
+    resultado.set(convertirFloat(num1.get()) - convertirFloat(num2.get()))
     mostrarResultado()
 
 def multiplicar():
-    resultado.set(float(num1.get()) * float(num2.get()))
+    resultado.set(convertirFloat(num1.get()) * convertirFloat(num2.get()))
     mostrarResultado()
 
 def division():
-    resultado.set(float(num1.get()) / float(num2.get()))
+    resultado.set(convertirFloat(num1.get()) / convertirFloat(num2.get()))
     mostrarResultado()
 
 def mostrarResultado():

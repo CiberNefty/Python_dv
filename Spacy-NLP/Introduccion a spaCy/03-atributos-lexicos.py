@@ -15,6 +15,6 @@ doc = nlp("Eso cuesta $5.")
 print("Indicice: ",[token.i for token in doc]) # Aqui arroja una lista de indices por cada token que encuentre en formato numerico.
 print("Texto: ", [token.text for token in doc]) # Aqui arroja una lista de token que encuentre sin importar los signos.
 
-print("Indicice: ",[token.i for token in doc]) # Aqui va a detallar cuales son valores alpha como palabras clave
+print("is_alpha: ",[token.is_alpha for token in doc]) # Aqui va a detallar cuales son valores alpha como palabras clave
 print("is_punct: ",[token.is_punct for token in doc]) # Aqui arroja valores bool y valor True cuando encuentra signos de puntuacion.
 print("like_num: ",[token.like_num for token in doc]) # Aqui arroja valores True o False cuando encuentre un numero.

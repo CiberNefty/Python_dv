@@ -15,7 +15,8 @@ from tkinter import *
 
 # Definimos ventana
 ventana = Tk()
-ventana.geometry('400x400')
+#ventana.geometry('400x400')
+ventana.minsize(500,400)
 ventana.title('Programa Tkinter - Python DV')
 ventana.resizable(0,0) # O puede ser  (FALSE,FALSE)
 
@@ -29,7 +30,7 @@ def home():
         padx=157,
         pady=15
     )
-    home_label.grid(row=0, column=0)
+    home_label.grid(row=0, column=0, columnspan=True)
 
     products_box.grid(row=1)
 

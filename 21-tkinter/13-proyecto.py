@@ -6,8 +6,8 @@ Crear un programa que tenga:
 (hecho) - Un Menu (Inicio, Añadir, Informacion, Salir)
 (hecho) - Opcion de salir
 (hecho) - Diferentes pantallas [Ocultar pantallas con la función grid_remove()]
-- Formulario de añadir productos
-- Guardar datos temporalmente
+(hecho) - Formulario de añadir productos
+(hecho) - Guardar datos temporalmente
 - Mostrar datos listados de la pantalla home
 
 """
@@ -100,7 +100,21 @@ def info():
 
     return True
 
+def add_product():
+    products.append([
+        name_data.get(),
+        price_data.get(),
+        add_description_entry.get('1.0','end-1c')# tiene que llevar unos parametros especiales ya que es de valor Text que serian ("1.0", "end-1c") para poder sacar los datos y guardarlos ahí
+    ])
+    #Borrar datos cuando ya estan guardados de los campos.
+    name_data.set('')
+    price_data.set('')
+    add_description_entry.delete('1.0',END) # Esto es para que borre el campo de la configuracion en especifico.
+    
+    home()
+
 # Variablees Importantes
+products = [] # Variable para los productes
 name_data = StringVar()
 price_data = StringVar()
 
@@ -123,7 +137,7 @@ add_description_entry= Text(add_frame)
 
 add_separator= Label(add_frame)
 
-boton = Button(add_frame, text='Guardar')
+boton = Button(add_frame, text='Guardar', command= add_product)
 
 # Definimos campos de pantalla (INFO)
 info_label = Label(ventana, text='INFORMACION')

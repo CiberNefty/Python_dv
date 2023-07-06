@@ -8,15 +8,16 @@ Crear un programa que tenga:
 (hecho) - Diferentes pantallas [Ocultar pantallas con la función grid_remove()]
 (hecho) - Formulario de añadir productos
 (hecho) - Guardar datos temporalmente
-- Mostrar datos listados de la pantalla home
+(hecho) - Mostrar datos listados de la pantalla home
 
 """
 from tkinter import *
+from tkinter import ttk
 
 # Definimos ventana
 ventana = Tk()
 #ventana.geometry('400x400')
-ventana.minsize(500,400)
+ventana.minsize(400,400)
 ventana.title('Programa Tkinter - Python DV')
 ventana.resizable(0,0) # O puede ser  (FALSE,FALSE)
 
@@ -30,18 +31,22 @@ def home():
         padx=157,
         pady=15
     )
-    home_label.grid(row=0, column=0, columnspan=True)
+    home_label.grid(row=0, column=0)
 
-    products_box.grid(row=1)
+    products_box.grid(row=2) 
 
     # Listar productos llamandolos
-    for product in products:
+    """for product in products:
         if len(product) == 3: # Si la longitud de mo producto es igual a 3
             product.append("added")
             Label(products_box, text=product[0]).grid() # Ahora mostramos con un label normal utilizando la lsita principal.
             Label(products_box, text=product[1]).grid()
             Label(products_box, text=product[2]).grid()
-            Label(products_box, text='---------------').grid()
+            Label(products_box, text='---------------').grid()"""
+    for product in products:
+        if len(product) == 3: # Si la longitud de mo producto es igual a 3
+            product.append("added")
+            products_box.insert("",0 , text=product[0], values=(product[1]))
 
     # Ocultar otras pantallas.
     add_label.grid_remove()
@@ -134,8 +139,13 @@ price_data = StringVar()
 
 # Definimos campos de pantalla (INICIO)
 home_label = Label(ventana, text='INICIO')
-products_box = Frame(ventana, width= 250)
+#products_box = Frame(ventana, width= 250)
 
+Label(ventana, text='').grid(row=1)
+products_box = ttk.Treeview(height=12, columns= 2)
+products_box.grid(row=1, column=0, columnspan= 2)
+products_box.heading("#0", text='Producto') # primero es el identificador y el segundo valor es el nombre de la columna
+products_box.heading("#1", text='Precio')
 # Definimos campos de pantalla (ADD)
 add_label = Label(ventana, text='AÑADIR PRODUCTO')
     # Campos del fomulario

@@ -31,6 +31,17 @@ def home():
     )
     home_label.grid(row=0, column=0)
 
+    products_box.grid(row=1)
+
+    # Listar productos llamandolos
+    for product in products:
+        if len(product) == 3: # Si la longitud de mo producto es igual a 3
+            product.append("added")
+            Label(products_box, text=product[0]).grid() # Ahora mostramos con un label normal utilizando la lsita principal.
+            Label(products_box, text=product[1]).grid()
+            Label(products_box, text=product[2]).grid()
+            Label(products_box, text='---------------').grid()
+
     # Ocultar otras pantallas.
     add_label.grid_remove()
     add_frame.grid_remove()
@@ -77,9 +88,10 @@ def add():
     )
     # Ocultar otras pantallas.
     home_label.grid_remove()
+    products_box.grid_remove()
     info_label.grid_remove()
     data_label.grid_remove()
-
+    
     return True
 
 def info():
@@ -95,6 +107,7 @@ def info():
 
     # Ocultar otras pantallas.
     home_label.grid_remove()
+    products_box.grid_remove()
     add_label.grid_remove()
     add_frame.grid_remove()
 
@@ -120,6 +133,7 @@ price_data = StringVar()
 
 # Definimos campos de pantalla (INICIO)
 home_label = Label(ventana, text='INICIO')
+products_box = Frame(ventana, width= 250)
 
 # Definimos campos de pantalla (ADD)
 add_label = Label(ventana, text='AÑADIR PRODUCTO')

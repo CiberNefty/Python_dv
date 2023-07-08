@@ -58,6 +58,7 @@ def liquidar():
     btn_Guardar_liquid.config(font=("Arial", 10, 'bold'), fg='black', bg='lavender')
 
     label_nomina.grid_remove()
+    info_nomina_box.grid_remove()
 
     return True
 
@@ -68,13 +69,48 @@ def reporte():
         pady=12, padx=175
     )
     label_nomina.grid(row=0, column=0, columnspan=12)
+    info_nomina_box.grid(row=1)
+
+    # Listar Productos
+    for datos in datos_nomina:
+        if len(datos) == 3:
+            Label(info_nomina_box, text= datos[0]).grid()
+            Label(info_nomina_box, text=datos[1]).grid()
+            Label(info_nomina_box, text=datos[2]).grid()
+            datos.append('addedd')
+            Label(info_nomina_box, text='---------------------').grid()
+    
 
     label_liquidar.grid_remove()
     frame_liquidar.grid_remove()
 
     return True
 
+def add_info():
+    datos_nomina.append([
+        cedula.get(),
+        apellidos.get(),
+        nombres.get()
+        #cargo.get(),
+        #htrabajadas.get(),
+        #valorhoraT.get(),
+        #totalDevengado.get(),
+        #descuentoSalud.get(),
+        #descuentoPension.get(),
+        #totalDeducidos.get(),"""
+    ])
+
+    cedula.set('')
+    apellidos.set('')
+    nombres.set('')
+
+    label_liquidar.grid_remove()
+    frame_liquidar.grid_remove()
+
+    reporte()
+
 # Variables Importantes
+datos_nomina = [] # Esta variable es para guardar los datos
 cedula = StringVar()
 apellidos = StringVar()
 nombres = StringVar()
@@ -107,24 +143,23 @@ l_htrabajadas_entry = Entry(frame_liquidar, textvariable=htrabajadas)
 l_valorHora_label = Label(frame_liquidar, text='Valor de la Hora :')
 l_valorHora_entry = Entry(frame_liquidar, textvariable=valorhoraT)
 l_tDevengado_label = Label(frame_liquidar, text='Total Devengado :')
-l_tDevengado_entry = Entry(frame_liquidar, text=totalDevengado)
+l_tDevengado_entry = Entry(frame_liquidar, textvariable=totalDevengado)
 l_descuentoSalud_label = Label(frame_liquidar, text='Descuento Salud :')
-l_descuentoSalud_entry = Entry(frame_liquidar, text=descuentoSalud)
+l_descuentoSalud_entry = Entry(frame_liquidar, textvariable=descuentoSalud)
 l_descuentoPension_label = Label(frame_liquidar, text='Descuento Pensión :')
-l_descuentoPension_entry = Entry(frame_liquidar, text=descuentoPension)
+l_descuentoPension_entry = Entry(frame_liquidar, textvariable=descuentoPension)
 l_totalDeducidos_label = Label(frame_liquidar, text='Total Deducidos :')
-l_totalDeducidos_entry = Entry(frame_liquidar, text=totalDeducidos)
+l_totalDeducidos_entry = Entry(frame_liquidar, textvariable=totalDeducidos)
 l_totalApagar_label = Label(frame_liquidar, text='Total apagar :')
-l_totalApagar_entry = Entry(frame_liquidar, text=totalApagar)
+l_totalApagar_entry = Entry(frame_liquidar, textvariable=totalApagar)
 
 btn_Cacular_liquid = Button(frame_liquidar, text='Calcular Liquidadción')
-btn_Guardar_liquid = Button(frame_liquidar, text='Guardar Liquidación')
+btn_Guardar_liquid = Button(frame_liquidar, text='Guardar Liquidación', command=add_info)
 
 
 # Campos para la pestaña (REPORTE)
 label_nomina = Label(ventana, text='REPORTE NOMINA')
-
-
+info_nomina_box = Frame(ventana, width= 250)
 
 # Creamos un Menu y luego lo metemos dentro de ventana.
 menu_nomina = Menu(ventana)

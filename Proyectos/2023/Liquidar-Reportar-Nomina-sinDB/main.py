@@ -123,6 +123,14 @@ def add_info():
 
     reporte()
 
+def calcular():
+    totalDevengado.set(int(htrabajadas.get()) * int(valorhoraT.get()))
+    descuentoSalud.set(totalDevengado.get() * 0.04)
+    descuentoPension.set(totalDevengado.get() * 0.04)
+    totalDeducidos.set(descuentoSalud.get() + descuentoPension.get())
+    totalApagar.set(totalDevengado.get() - totalDeducidos.get())
+
+    return True
 # Variables Importantes
 datos_nomina = [] # Esta variable es para guardar los datos
 cedula = StringVar()
@@ -131,11 +139,11 @@ nombres = StringVar()
 cargo = StringVar()
 htrabajadas = StringVar()
 valorhoraT = StringVar()
-totalDevengado = StringVar()
-descuentoSalud = StringVar()
-descuentoPension = StringVar()
-totalDeducidos = StringVar()
-totalApagar = StringVar()
+totalDevengado = IntVar()
+descuentoSalud = IntVar()
+descuentoPension = IntVar()
+totalDeducidos = IntVar()
+totalApagar = IntVar()
 
 
 # Campos para la pestaña (LIQUIDAR)

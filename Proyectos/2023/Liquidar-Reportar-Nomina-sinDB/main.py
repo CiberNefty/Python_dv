@@ -18,23 +18,23 @@ import logging"""
 import tkinter as tk
 from tkinter import *
 from tkinter import ttk
-from tkinter.messagebox import showinfo
+from tkinter import messagebox as MessageBox
 
 ventana = Tk()
 ventana.title('NOMINA en Tkinter')
 #ventana.geometry("600x400")
-ventana.minsize(600,500)
+ventana.minsize(600,320)
 ventana.resizable(TRUE, FALSE)
 
 def liquidar():
     label_liquidar.config(font=("Consola", 20),foreground='blue', background='white', pady=12, padx=175)
     label_liquidar.grid(row=0, column=0, columnspan=3)
     
-    frame_liquidar.grid(row=1, pady=7, padx=100)
+    frame_liquidar.grid(row=1,pady=2, padx=100)
 
-    btn_Cacular_liquid.grid(row=13, column=0, pady=12,padx=5)
+    btn_Cacular_liquid.grid(row=13, column=0, pady=8,padx=8)
     btn_Cacular_liquid.config(font=("Arial", 10, 'bold'),fg='white', bg='green')
-    btn_Guardar_liquid.grid(row=13, column=1, pady=3, padx=5, sticky=W)
+    btn_Guardar_liquid.grid(row=13, column=1, pady=3, padx=8, sticky=W)
     btn_Guardar_liquid.config(font=("Arial", 10, 'bold'), fg='black', bg='lavender')
 
     label_nomina.grid_remove()
@@ -47,7 +47,6 @@ def reporte():
     label_nomina.grid(row=0, column=0, columnspan=11, sticky=W)
     Label(ventana, text='').grid(row=1)
     info_nomina_box.grid(row=2, column=0)
-    #tree_box.grid(row=2)
 
     # Listar Productos
     """for datos in datos_nomina:
@@ -61,7 +60,7 @@ def reporte():
     for datos in datos_nomina:
         if len(datos) == 11:
             datos.append('addedd')
-            tree_box.insert('', tk.END, values=datos)    
+            tree_box.insert('', tk.END, values=datos)
 
     label_liquidar.grid_remove()
     frame_liquidar.grid_remove()
@@ -199,8 +198,13 @@ tree_box.heading("#9", text='Pension', anchor=W) # No comprendo porque el tree v
 tree_box.heading("#10", text='Deducidos', anchor=W)
 tree_box.heading("#11", text='Total a Pagar', anchor=W)
 
+# Vamos a unir Un Scrollvar
+scrollbar = ttk.Scrollbar(info_nomina_box, orient=tk.VERTICAL, command= tree_box.yview)
+tree_box.config(yscroll= scrollbar.set)
+scrollbar.grid(row=1, column=1)
+
 btn_devolver_liquidacion = Button(info_nomina_box, text='DEVOLVER', command= liquidar)
-btn_devolver_liquidacion.config( bg='lavender', fg='darkblue', padx=7, pady=7, font=('Consolas', 20, 'bold'), border=5)
+btn_devolver_liquidacion.config( bg='lavender', fg='darkblue', padx=5, pady=5, font=('Consolas', 15, 'bold'), border=3)
 btn_devolver_liquidacion.grid(row=3, sticky=E)
 
 # Creamos un Menu y luego lo metemos dentro de ventana.

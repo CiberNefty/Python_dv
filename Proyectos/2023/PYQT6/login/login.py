@@ -55,17 +55,29 @@ class Login(QWidget):
         self.check_view_password = QCheckBox(self)
         self.check_view_password.setText("Ver Contraseña")
         self.check_view_password.move(90,110)
+        self.check_view_password.clicked.connect(self.mostrar_contrasena)
 
         login_button = QPushButton(self)
         login_button.setText("Login")
         login_button.resize(320, 34)
         login_button.move(20, 140 )
+        login_button.clicked.connect(self.inicializar_mainview)
 
         register_button = QPushButton(self)
         register_button.setText("Registrate")
         register_button.resize(320, 34)
         register_button.move(20, 180 )
+        register_button.clicked.connect(self.registrar_usuario)
 
+    def mostrar_contrasena(self):
+        pass # Permite tener el metodo en vacio.
+        
+
+    def inicializar_mainview(self):
+        pass
+
+    def registrar_usuario(self):
+        pass
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

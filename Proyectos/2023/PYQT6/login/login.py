@@ -13,7 +13,7 @@ from PyQt6.QtGui import QFont, QPixmap # Con esta calse qpixmap vamos a introduc
 
 class Login(QWidget):
     def __init__(self):
-        super.__init__()
+        super().__init__()
         self.inicializar_ui()
 
     def inicializar_ui(self):
@@ -36,6 +36,17 @@ class Login(QWidget):
         self.user_imput = QLineEdit(self)
         self.user_imput.resize(250,24)
         self.user_imput.move(90,50)
+
+        password_label = QLabel(self)
+        password_label.setText("Password:")
+        password_label.setFont(QFont("Arial", 10))
+        # Vamos a situar o colocar en alguna posicion (x,y)
+        password_label.move(20,86)
+
+        # Campo donde el usuario digita la informacion y de paso vamos a colocar esta variable como instacia
+        self.password_imput = QLineEdit(self)
+        self.password_imput.resize(250,24)
+        self.password_imput.move(90,82)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

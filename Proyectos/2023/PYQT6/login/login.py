@@ -51,6 +51,22 @@ class Login(QWidget):
         self.password_imput.setEchoMode(
             QLineEdit.EchoMode.Password
         )
+
+        self.check_view_password = QCheckBox(self)
+        self.check_view_password.setText("Ver Contraseña")
+        self.check_view_password.move(90,110)
+
+        login_button = QPushButton(self)
+        login_button.setText("Login")
+        login_button.resize(320, 34)
+        login_button.move(20, 140 )
+
+        register_button = QPushButton(self)
+        register_button.setText("Registrate")
+        register_button.resize(320, 34)
+        register_button.move(20, 180 )
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     login = Login()

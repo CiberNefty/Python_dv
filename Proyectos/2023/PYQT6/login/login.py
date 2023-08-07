@@ -47,7 +47,10 @@ class Login(QWidget):
         self.password_imput = QLineEdit(self)
         self.password_imput.resize(250,24)
         self.password_imput.move(90,82)
-
+        # Ocultamos la contraseña del password
+        self.password_imput.setEchoMode(
+            QLineEdit.EchoMode.Password
+        )
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     login = Login()

@@ -1,7 +1,8 @@
 import sys
 from PyQt6.QtWidgets import (
     QApplication, 
-    QWidget, 
+    QWidget,
+    QLabel,
     QLineEdit,
     QPushButton,
     QVBoxLayout)
@@ -13,15 +14,23 @@ class ventantaPrincipal(QWidget):
         # Ponemos un valor en neustro titulo
         self.setWindowTitle('Qt Singlas & Slots - Señales y Ranuras')
 
+        label = QLabel()
+        line_edit = QLineEdit()
+        line_edit.textChanged.connect(label.setText)
+
         # Creamos un widget button y lo conectamos con un evento o señal de clicked
         button = QPushButton('¡Click Me!')
         button.clicked.connect(self.boton_cliqueo)
 
         layout = QVBoxLayout()
-        self.setLayout(layout)
-
+        
         layout.addWidget(button)
+        layout.addWidget(label)
+        layout.addWidget(line_edit)
 
+
+        self.setLayout(layout)
+        
         # Mostramos la ventana
         self.show()
 

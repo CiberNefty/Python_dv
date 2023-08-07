@@ -22,7 +22,20 @@ class Login(QWidget):
         self.generar_formulario() # Va a tener toda la logica que nos genera la contraseña los botones toda la parte visual en este metodo
         self.show()
 
-    
+    def generar_formulario(self):
+        # Esto es una variable de instancia gracias a el metodo self que va hacer accesible en toda la clase
+        self.is_logged = False # Como el usuario no esta logiado el va a inicializar el formulario
+        
+        user_label = QLabel(self)
+        user_label.setText("Usuario:")
+        user_label.setFont(QFont("Arial", 10))
+        # Vamos a situar o colocar en alguna posicion (x,y)
+        user_label.move(20,54)
+
+        # Campo donde el usuario digita la informacion y de paso vamos a colocar esta variable como instacia
+        self.user_imput = QLineEdit(self)
+        self.user_imput.resize(250,24)
+        self.user_imput.move(90,50)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

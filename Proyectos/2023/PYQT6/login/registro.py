@@ -45,4 +45,59 @@ class RegistrarUsuarioView(QDialog):
             QLineEdit.EchoMode.Password
         )
 
+        create_Button = QPushButton(self)
+        create_Button.setText('¡CREAR!')
+        create_Button.resize(145, 34)
+        create_Button.move(20, 170)
+        create_Button.clicked.connect(self.crear_usuario)
+
+        cancel_Button = QPushButton(self)
+        cancel_Button.setText('¡CANCELAR!')
+        cancel_Button.resize(145, 34)
+        cancel_Button.move(170, 170)
+        cancel_Button.clicked.connect(self.cancelar_creacion)
+
+    def cancelar_creacion(self):
+        # Para cerrar la ventana con la opcion close()
+        self.close()
+
+    def crear_usuario(self):
+        #vamos a crear a los usuario dandole una ruta en especifico
+        user_path = 'usuarios.txt'
+
+        # Vamos a obtener la informacion que el usuario haya digitado en los campos de texto
+        usuario = self.user_input.text() # Obtenemos el valor con text()
+        password1 = self.password_1_input.text()
+        password2 = self.password_2_input.text() # Extraer el texo
+
+        """ VERIFICAR QUE LA INFORMACION ES COHERENTE """
+        if password1 == '' or password2 == '' or usuario == '':
+            QMessageBox.warning(self,'ERROR',
+            'Por favor ingrese datos validos, sin dejar campos de texto en blanco.',
+            QMessageBox.StandardButton.Close,
+            QMessageBox.StandardButton.Close)
+        elif password1 != password2:
+            QMessageBox.warning(self,'ERROR',
+            'Las contraseñas no coinciden.',
+            QMessageBox.StandardButton.Close,
+            QMessageBox.StandardButton.Close)
+        else:
+            try:
+                # Primero abrimos el archivo para escribir en él.
+                with open(user_path, 'a+') as f:
+                    f.write(f'{usuario}, {password1}\n')
+                QMessageBox.information(self, 'CREACION EXITOSA',
+                'Usuario creado correctamente',
+                QMessageBox.StandardButton.Ok,
+                QMessageBox.StandardButton.Ok)
+                self.close()
+            except FileNotFoundError as e: 
+                # Herrorres que se pueden presentar
+                QMessageBox.warning(self,
+                'ERROR',
+                f'La base de datos de usuario no existe: {e}',
+                QMessageBox.StandardButton.Close,
+                QMessageBox.StandardButton.Close)
+        
+            
         

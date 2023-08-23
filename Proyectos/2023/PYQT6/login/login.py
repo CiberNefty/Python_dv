@@ -10,6 +10,7 @@ from PyQt6.QtWidgets import (
     QMessageBox, # Nos permite interactuar con ventanas emergentes
     QCheckBox)
 from PyQt6.QtGui import QFont, QPixmap # Con esta calse qpixmap vamos a introducir imagenes en nuestra app
+from registro import RegistrarUsuarioView # Importamos otro modulo
 
 class Login(QWidget):
     def __init__(self):
@@ -55,7 +56,9 @@ class Login(QWidget):
         self.check_view_password = QCheckBox(self)
         self.check_view_password.setText("Ver Contraseña")
         self.check_view_password.move(90,110)
-        self.check_view_password.clicked.connect(self.mostrar_contrasena)
+        #self.check_view_password.clicked.connect(self.mostrar_contrasena)
+        # La señal toggled es cuando se chulea el campo del checkbox y este me envia por argumento si el campo esta activo o inactivo
+        self.check_view_password.toggled.connect(self.mostrar_contrasena)
 
         login_button = QPushButton(self)
         login_button.setText("Login")
@@ -69,15 +72,24 @@ class Login(QWidget):
         register_button.move(20, 180 )
         register_button.clicked.connect(self.registrar_usuario)
 
-    def mostrar_contrasena(self):
-        pass # Permite tener el metodo en vacio.
-        
-
+    def mostrar_contrasena(self, clicked):
+        # pass # Permite tener el metodo en vacio.
+        if clicked: #  si estoy clickiado permite que el campo de la contraseña sea visto
+            # Accedemos a la variable de instancia
+            self.password_imput.setEchoMode(
+                QLineEdit.EchoMode.Normal
+            )
+        else:
+            self.password_imput.setEchoMode(
+                QLineEdit.EchoMode.Password
+            )
     def inicializar_mainview(self):
         pass
 
     def registrar_usuario(self):
-        pass
+        self.new_user_formulario = RegistrarUsuarioView() # como son variables de instancia en donde se llama un modulo de un metodo colocamos el self
+        # Este es otro modulo que importamos para registrar usuario
+        self.new_user_formulario.show()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

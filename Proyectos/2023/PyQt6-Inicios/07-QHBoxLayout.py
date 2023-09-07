@@ -19,16 +19,18 @@ class ventanaMain(QWidget):
         titulos = ['Yes', 'No', 'Cancelado']
         botonPadre = [QPushButton(titulo) for titulo in titulos]
         
-        """for botonHijo in botonPadre:
-            layoutPadre.addWidget(botonHijo)"""
+        for botonHijo in botonPadre:
+            layoutPadre.addWidget(botonHijo)
 
-        layoutPadre.addWidget(botonPadre[0])
-        layoutPadre.addWidget(botonPadre[1])
-        layoutPadre.setStretchFactor(botonPadre[1], 10)
+        """layoutPadre.addWidget(botonPadre[0])
+        layoutPadre.addWidget(botonPadre[1])"""
+        layoutPadre.setStretchFactor(botonPadre[0], 2)
+        layoutPadre.setStretchFactor(botonPadre[1], 2)
+        layoutPadre.setStretchFactor(botonPadre[2], 1)
         # Añadimos un espaciador en el LayoutPadre
-        layoutPadre.addStretch()
+        #layoutPadre.addStretch()
 
-        layoutPadre.addWidget(botonPadre[2])
+        """layoutPadre.addWidget(botonPadre[2])"""
 
         self.show()
 

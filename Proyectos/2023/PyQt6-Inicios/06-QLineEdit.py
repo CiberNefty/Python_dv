@@ -1,18 +1,35 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QWidget, QLineEdit, QVBoxLayout
-from PyQt6.QtCore import QSize
-from PyQt6.QtGui import QIcon, QFont
+from PyQt6.QtWidgets import (
+    QApplication,
+    QWidget,
+    QLineEdit,
+    QVBoxLayout
+)
 
-class Main(QWidget):
+
+class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.setWindowTitle('PyQt6 QLineEdition')
-        self.setGeometry(100,100,300,200)
-        
-        self.show()
-        
 
-if '__name__' == '__main__':
+        self.setWindowTitle('PyQt QLineEdit')
+        self.setGeometry(100, 100, 320, 210)
+
+        cajabusqueda = QLineEdit(
+            self,
+            placeholderText = 'Escribe aquí',
+            clearButtonEnabled = True
+        )
+
+        layout = QVBoxLayout()
+        layout.addWidget(cajabusqueda)
+        self.setLayout(layout)
+
+
+
+        self.show()
+
+
+if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ventana = Main()
+    window = MainWindow()
     sys.exit(app.exec())

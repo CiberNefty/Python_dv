@@ -22,11 +22,15 @@ class ventanaMain(QWidget):
         for botonHijo in botonPadre:
             layoutPadre.addWidget(botonHijo)
 
+        layoutPadre.setSpacing(50)
         """layoutPadre.addWidget(botonPadre[0])
         layoutPadre.addWidget(botonPadre[1])"""
-        layoutPadre.setStretchFactor(botonPadre[0], 2)
-        layoutPadre.setStretchFactor(botonPadre[1], 2)
-        layoutPadre.setStretchFactor(botonPadre[2], 1)
+        
+        """layoutPadre.setStretchFactor(botonPadre[0], 1)
+        #layoutPadre.setSpacing(20)
+        layoutPadre.setStretchFactor(botonPadre[1], 0)
+        layoutPadre.setStretchFactor(botonPadre[2], 1)"""
+
         # Añadimos un espaciador en el LayoutPadre
         #layoutPadre.addStretch()
 

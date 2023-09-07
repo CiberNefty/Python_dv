@@ -8,17 +8,21 @@ class ventanaMain(QWidget):
         super().__init__(*args, **kwargs)
 
         self.setWindowTitle('PyQt6 QHBoxLayout')
-        #self.setGeometry(100, 100, 320, 210)
+        self.setGeometry(100, 100, 320, 210)
 
         # Creamos nuestro layout
         layoutPadre = QHBoxLayout()
         self.setLayout(layoutPadre)
         
+        layoutPadre.addStretch()
         # Creamos los botones y añadimos los temas a nuestro layout
         titulos = ['Yes', 'No', 'Cancelado']
         botonPadre = [QPushButton(titulo) for titulo in titulos]
         for botonHijo in botonPadre:
             layoutPadre.addWidget(botonHijo)
+
+        # Añadimos un espaciador en el LayoutPadre
+        layoutPadre.addStretch()
 
         self.show()
 

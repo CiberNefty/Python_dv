@@ -22,7 +22,8 @@ class ventanaMain(QWidget):
         for botonHijo in botonPadre:
             layoutPadre.addWidget(botonHijo)
 
-        layoutPadre.setSpacing(50)
+        layoutPadre.setSpacing(0)
+        layoutPadre.setContentsMargins(150, 50, 150, 50)
         """layoutPadre.addWidget(botonPadre[0])
         layoutPadre.addWidget(botonPadre[1])"""
         
@@ -42,3 +43,12 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = ventanaMain()
     sys.exit(app.exec())
+
+"""
+Resumen
+Se utiliza para dividir el widget principal en cuadros horizontales y colocarlos secuencialmente de izquierda a derecha.QHBoxLayout
+    * Utilice el método del objeto para agregar un espaciador horizontal al diseño para alinear los widgets secundarios a la izquierda, derecha o centro.addStretch()QHBoxLayout
+    * Utilice el método del objeto para establecer el factor de estiramiento de un widget secundario.setStretchFactor()QHBoxLayout
+    * Utilice el método del objeto para establecer los espacios entre los widgets secundarios.setSpacing()QHBoxLayout
+    * Utilice el método del objeto para establecer los márgenes izquierdo, superior, derecho e inferior.setContentsMargins()QHBoxLayout
+"""

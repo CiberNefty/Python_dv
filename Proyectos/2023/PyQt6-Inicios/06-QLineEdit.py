@@ -20,12 +20,16 @@ class MainWindow(QWidget):
             clearButtonEnabled = True
         )
 
+        password = QLineEdit(self,
+            echoMode = QLineEdit.EchoMode.Password,
+            clearButtonEnabled = True
+        )
+
         layout = QVBoxLayout()
         layout.addWidget(cajabusqueda)
+        layout.addWidget(password) # Aqui agregamos nuestra QlineEdit con password
+
         self.setLayout(layout)
-
-
-
         self.show()
 
 

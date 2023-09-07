@@ -14,7 +14,7 @@ class ventanaMain(QWidget):
         layoutPadre = QHBoxLayout()
         self.setLayout(layoutPadre)
         
-        layoutPadre.addStretch()
+        #layoutPadre.addStretch()
         # Creamos los botones y añadimos los temas a nuestro layout
         titulos = ['Yes', 'No', 'Cancelado']
         botonPadre = [QPushButton(titulo) for titulo in titulos]
@@ -24,7 +24,7 @@ class ventanaMain(QWidget):
 
         layoutPadre.addWidget(botonPadre[0])
         layoutPadre.addWidget(botonPadre[1])
-
+        layoutPadre.setStretchFactor(botonPadre[1], 10)
         # Añadimos un espaciador en el LayoutPadre
         layoutPadre.addStretch()
 

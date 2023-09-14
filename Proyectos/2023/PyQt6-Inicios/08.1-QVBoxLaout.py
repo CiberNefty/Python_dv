@@ -1,6 +1,4 @@
 import sys
-import typing
-from PyQt6 import QtCore
 from PyQt6.QtWidgets import QWidget, QApplication, QLabel, QVBoxLayout
 
 class Ventana(QWidget):
@@ -10,6 +8,26 @@ class Ventana(QWidget):
         self.setWindowTitle("PyQt6 QVBoxLayout - Verticalmente")
         self.setGeometry(100,100, 300, 200)
 
+        # Creamos el layout para alajor los objetos
+        layoutPadre = QVBoxLayout()
+        self.setLayout(layoutPadre)
+
+        # Creamos los "Botones" (de objeto Label)
+        label1 =QLabel()
+        label1.setStyleSheet('QLabel {background-color: YELLOW}')
+        label2 =QLabel()
+        label2.setStyleSheet('QLabel {background-color: BLUe}')
+        label3 =QLabel()
+        label3.setStyleSheet('QLabel {background-color: RED}')
+
+
+        # Añadimos los widget en el layout.
+        layoutPadre.addWidget(label1)
+        layoutPadre.addStretch()
+        layoutPadre.addWidget(label2)
+        layoutPadre.addSpacing(15)
+        layoutPadre.addWidget(label3)
+        
         self.show()
 
 

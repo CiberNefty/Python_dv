@@ -44,11 +44,19 @@ class MainWindow(QWidget):
         layoutPadre_Grid.addWidget(boton1, 3,0, 2,0, Qt.AlignmentFlag.AlignBottom)"""
         layoutPadre_Grid.addWidget(QPushButton('Iniciar'), 2,0,
                                     Qt.AlignmentFlag.AlignHCenter)
-        layoutPadre_Grid.addWidget(QPushButton('Cerrar'), 2,1,
+        botonCerrar = QPushButton()
+        botonCerrar.setText('Cerrar')
+        botonCerrar.setStyleSheet('QPushButton{background-color:red}')
+        botonCerrar.clicked.connect(self.cerrar_ventana)
+
+        layoutPadre_Grid.addWidget(botonCerrar, 2,1,
                                    alignment=Qt.AlignmentFlag.AlignHCenter)
         
-
         self.show()
+
+    def cerrar_ventana(self, clicked):
+        print("Cerrar")
+        exit()
 
 
 if __name__ == '__main__':

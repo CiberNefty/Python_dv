@@ -10,7 +10,7 @@ class VentanaDaniel(QWidget):
 
         layoutPadre = QVBoxLayout()
         self.setLayout(layoutPadre)
-
+        """
         # Agregar un espaciador al principio del layout con addStretch(), Toca colocar un tamaño a la ventana para que se muestre el espaciador.
         layoutPadre.addStretch()
 
@@ -21,7 +21,25 @@ class VentanaDaniel(QWidget):
             layoutPadre.addWidget(Boton)
 
         # Añadimos un espaciador para vizualizar los botones en la parte superior.
+        layoutPadre.addStretch()"""
+
+        # Este es otro codigo para vizualizar los botones de otra manera sin agregar una lista que rrecorra y agrege los botones.
+
+        # Creamos los botones
+        primerBoton = QPushButton('Primer Boton')
+        segundoBoton = QPushButton('Segundo Boton')
+        terceraBoton = QPushButton('Tercer Boton')
+
+        # Agregamos los botones al layout padre
+        layoutPadre.addWidget(primerBoton)
+        layoutPadre.addWidget(segundoBoton)
+
+        # Añadimos un espaciador  entre dos botones
         layoutPadre.addStretch()
+
+        # Añadimos el tercer boton
+        layoutPadre.addWidget(terceraBoton)
+
         self.show()
 
 

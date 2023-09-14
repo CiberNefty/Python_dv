@@ -12,7 +12,7 @@ class VentanaDaniel(QWidget):
         self.setLayout(layoutPadre)
 
         # Agregar un espaciador al principio del layout con addStretch(), Toca colocar un tamaño a la ventana para que se muestre el espaciador.
-        #layoutPadre.addStretch()
+        layoutPadre.addStretch()
 
         nombreBotones = ['Daniel', 'Pipe', 'Edgar', 'Pato']
         buttons = [QPushButton(nombreBoton) for nombreBoton in nombreBotones]

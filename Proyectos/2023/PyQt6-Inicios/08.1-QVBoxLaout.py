@@ -23,11 +23,16 @@ class Ventana(QWidget):
 
         # Añadimos los widget en el layout.
         layoutPadre.addWidget(label1)
-        layoutPadre.addStretch()
+        layoutPadre.addStretch() # Utlizando los metodoss de StrechFacto no sirve este espaciador.
         layoutPadre.addWidget(label2)
         layoutPadre.addSpacing(15)
         layoutPadre.addWidget(label3)
         
+        # Asisgnar proporcianalmente el tamaño a un widget.
+        layoutPadre.setStretchFactor(label1, 3)
+        layoutPadre.setStretchFactor(label2, 2)
+        layoutPadre.setStretchFactor(label3, 1)
+
         self.show()
 
 

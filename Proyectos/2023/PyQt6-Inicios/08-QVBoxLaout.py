@@ -27,8 +27,9 @@ class VentanaDaniel(QWidget):
 
         # Creamos los botones
         primerBoton = QPushButton('Primer Boton')
-        primerBoton.setStyleSheet('background-color: red')
+        primerBoton.setStyleSheet('QPushButton{background-color: red}')
         segundoBoton = QPushButton('Segundo Boton')
+        segundoBoton.setStyleSheet('border: 1px solid red')
         terceraBoton = QPushButton('Tercer Boton')
 
         # Agregamos los botones al layout padre

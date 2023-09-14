@@ -6,10 +6,13 @@ class VentanaDaniel(QWidget):
         super().__init__(*args,**kwargs)
 
         self.setWindowTitle("PyQt6 QVBoxLayout - Verticalmente")
-        #self.setGeometry(100,100,100,300)
+        self.setGeometry(100,100,100,300)
 
         layoutPadre = QVBoxLayout()
         self.setLayout(layoutPadre)
+
+        # Agregar un espaciador al principio del layout con addStretch(), Toca colocar un tamaño a la ventana para que se muestre el espaciador.
+        layoutPadre.addStretch()
 
         nombreBotones = ['Daniel', 'Pipe', 'Edgar', 'Pato']
         buttons = [QPushButton(nombreBoton) for nombreBoton in nombreBotones]

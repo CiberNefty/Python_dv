@@ -33,6 +33,9 @@ class Ventana(QWidget):
         layoutPadre.setStretchFactor(label2, 2)
         layoutPadre.setStretchFactor(label3, 1)
 
+        # Configuracion de margenes
+        layoutPadre.setContentsMargins(10,10,10,20)
+
         self.show()
 
 
@@ -40,3 +43,13 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ventana = Ventana()
     sys.exit(app.exec())
+
+
+"""
+Resumen
+ * Utilice PyQt para dividir el widget principal en cuadros verticales y colocar los widgets secundarios secuencialmente de arriba a abajo.QVBoxLayout
+ * Utilice el método del objeto para agregar un espaciador vertical al diseño para alinear los widgets en la parte superior, inferior o central.addStretch()QVBoxLayout
+ * Utilice el método del objeto para establecer un factor de estiramiento para un widget en el diseño.setStretchFactor()QVBoxLayout
+ * Utilice el método del objeto para establecer los espacios entre los widgets secundarios.setSpacing()QVBoxLayout
+ * Utilice el método del objeto para establecer los márgenes izquierdo, superior, derecho e inferior del contenido.setContentsMargins()
+"""

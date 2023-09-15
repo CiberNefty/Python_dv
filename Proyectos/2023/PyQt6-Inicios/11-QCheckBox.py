@@ -1,6 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QCheckBox, QGridLayout, QLabel, QLineEdit, QPushButton
-
+from PyQt6.QtCore import Qt
 
 class VentanaQCheckBox(QWidget):
     def __init__(self, *args, **kwargs):
@@ -11,6 +11,10 @@ class VentanaQCheckBox(QWidget):
         layoutPadre = QGridLayout()
         self.setLayout(layoutPadre)
 
+        # Creamos nuestro checkBox
+        checkBox1 = QCheckBox('I gree', self)
+        # Agregamos nuestro checkBox a nuestro gridlayout y lo posicionamos y le damos un aliniamiento.
+        layoutPadre.addWidget(checkBox1, 0,0, Qt.AlignmentFlag.AlignBottom)
         
 
         self.show()

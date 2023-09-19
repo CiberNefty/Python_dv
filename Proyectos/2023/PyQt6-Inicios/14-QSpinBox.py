@@ -1,5 +1,5 @@
 import sys
-from PyQt6.QtWidgets import QWidget, QApplication, QVBoxLayout, QSpinBox, QLabel
+from PyQt6.QtWidgets import QWidget, QApplication, QFormLayout, QSpinBox, QLabel
 
 class VentanaPadre(QWidget):
     def __init__(self, *args, **kwargs):
@@ -8,7 +8,7 @@ class VentanaPadre(QWidget):
         self.setMinimumWidth(300)
 
         # Creamos caja contendedora
-        layoutPadre = QVBoxLayout()
+        layoutPadre = QFormLayout()
         self.setLayout(layoutPadre)
 
         # Creamos nuestro SpinBox
@@ -21,8 +21,9 @@ class VentanaPadre(QWidget):
         self.resultado = QLabel('',self)
 
         # Agregamos los objetos al layout
-        layoutPadre.addWidget(spinBox_amount)
-        layoutPadre.addWidget(self.resultado)
+        layoutPadre.addRow('Importe', spinBox_amount)
+        #layoutPadre.addWidget(self.resultado)
+        layoutPadre.addRow(self.resultado)
 
         self.show()
 

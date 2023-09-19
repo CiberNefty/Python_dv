@@ -15,15 +15,25 @@ class VentanaPadre(QWidget):
         spinBox_amount = QSpinBox(
             minimum = 1, maximum = 50, value= 20, prefix = '$'
         )
+        spinBox_number = QSpinBox(
+            minimum = 1, maximum = 50, value= 20, suffix = '$' # Aqui antepone el valor sufijo depues del contenido.
+        )
+        spinBox_wrapping = QSpinBox(
+            minimum = 1, maximum = 50, value= 20, wrapping = True
+        )
+
+
         # Creamos una conexion con el metodo valueChanged.connect
         spinBox_amount.valueChanged.connect(self.funcionActualizacion)
 
         self.resultado = QLabel('',self)
 
         # Agregamos los objetos al layout
-        layoutPadre.addRow('Importe', spinBox_amount)
+        layoutPadre.addRow('Importe: ', spinBox_amount)
         #layoutPadre.addWidget(self.resultado)
         layoutPadre.addRow(self.resultado)
+        layoutPadre.addRow('Number: ', spinBox_number)
+        layoutPadre.addRow('Wrapping: ', spinBox_wrapping)
 
         self.show()
 

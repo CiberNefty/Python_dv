@@ -30,3 +30,20 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ventana = VentanaPadre()
     sys.exit(app.exec())
+
+"""
+tiene los siguientes métodos y propiedades útiles:QDateTimeEdit
+
+Propiedad	Descripción
+date()	Devuelve el valor de fecha mostrado por el widget. El tipo de devolución es . Para convertirlo en un objeto, utilice el método de la clase.QDatedatetime.datetoPyDate()QDate
+time()	Devuelve la hora mostrada por el widget. El valor devuelto tiene el tipo de . Utilice el método para convertirlo en un objeto de Python.QTimetoPyTime()datetime.time
+dateTime()	Devuelve el valor de fecha y hora que muestra el widget. El tipo de devolución es .QDateTime
+minimumDate	La fecha más temprana que puede establecer el usuario.
+maximumDate	La última fecha que puede establecer el usuario.
+minimumTime	La hora más temprana que puede establecer el usuario.
+maximumTime	La última hora que puede establecer el usuario.
+minimumDateTime	La fecha y hora más tempranas que puede establecer el usuario.
+maximumDateTime	La última fecha y hora que puede establecer el usuario.
+calendarPopup	Mostrar una ventana emergente de calendario si es True.
+displayFormat	es una cadena que da formato a la fecha mostrada en el widget.
+"""

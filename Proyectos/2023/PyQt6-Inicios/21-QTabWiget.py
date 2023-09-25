@@ -14,11 +14,12 @@ class ventanaPadre(QWidget):
         self.setLayout(Layoutpadre)
 
         # Grupo de Pestañas 1
-        self.tab = QTabWidget(self, movable=True, tabsClosable=True) # para mover pestañas con (movable=True) para boton cerrar pestañas (tabsCloseble=True).
+        self.tab = QTabWidget(self, movable=True, tabsClosable=True, tabShape=QTabWidget.TabShape.Triangular) # para mover pestañas con (movable=True) para boton cerrar pestañas (tabsCloseble=True).
         # tab.setMovable(True) # Para mover la petaña de un lado a hotro horizontal.
         #tab.setTabsClosable(True) # Para boton de cerrar pestañas.
         # Agregamos metodo para poder cerrar cada pestaña.
-        self.tab.tabCloseRequested.connect(self.cerrarVentana)
+        #self.tab.tabCloseRequested.connect(self.cerrarVentana)
+        #self.tab.setTabShape(QTabWidget.TabShape.Triangular)
 
         # Cramos primero nuestras pestaña 1 del grupo de pestañas 1
         # Panel de informacion persona

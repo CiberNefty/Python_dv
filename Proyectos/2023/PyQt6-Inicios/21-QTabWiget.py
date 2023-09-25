@@ -14,10 +14,12 @@ class ventanaPadre(QWidget):
         self.setLayout(Layoutpadre)
 
         # Grupo de Pestañas 1
-        tab = QTabWidget(self, movable=True, tabsCloseable=True) # para mover pestañas con (movable=True) para boton cerrar pestañas (tabsCloseble=True)
-        # tab.setMovable(True) # Para mover la petaña de un lado a hotro horizontal
-        #tab.setTabsClosable(True) # Para boton de cerrar pestañas
-        
+        self.tab = QTabWidget(self, movable=True, tabsClosable=True) # para mover pestañas con (movable=True) para boton cerrar pestañas (tabsCloseble=True).
+        # tab.setMovable(True) # Para mover la petaña de un lado a hotro horizontal.
+        #tab.setTabsClosable(True) # Para boton de cerrar pestañas.
+        # Agregamos metodo para poder cerrar cada pestaña.
+        self.tab.tabCloseRequested.connect(self.cerrarVentana)
+
         # Cramos primero nuestras pestaña 1 del grupo de pestañas 1
         # Panel de informacion persona
         pagina_personal = QWidget(self)
@@ -40,19 +42,21 @@ class ventanaPadre(QWidget):
         layoutPageContact.addRow('Contacto de informacion: ', QLineEdit(self))
 
         # Añadimos al tab (grupo de pestañas) cada pagina contenedora de widgets y su nombre
-        tab.addTab(pagina_personal, 'Informacion Personal')
-        tab.addTab(pagina_contacto, 'Informacion de Contacto')
+        self.tab.addTab(pagina_personal, 'Informacion Personal')
+        self.tab.addTab(pagina_contacto, 'Informacion de Contacto')
 
         # Añadimos los paneles de paginas a la clase de objeto de QTabWidget (Grupo de pestañas 1)        
-        Layoutpadre.addWidget(tab, 0,0,2, 1)
+        Layoutpadre.addWidget(self.tab, 0,0,2, 1)
         Layoutpadre.addWidget(QPushButton('Guardar'), 2,0,
                               alignment= Qt.AlignmentFlag.AlignLeft)
         Layoutpadre.addWidget(QPushButton('Cancel'), 2,0,
                               alignment= Qt.AlignmentFlag.AlignRight)
         
-
-        
         self.show()
+
+    def cerrarVentana(self, señlRecibida): # Esto captura la señal del metodo dee cerrar ventana.
+        print('Cerrar ventana')
+        self.tab.removeTab(señlRecibida) # Y con esto le decimos que cierre dicha ventana.
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

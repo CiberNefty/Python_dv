@@ -14,7 +14,7 @@ class ventanaPadre(QWidget):
         self.setLayout(LayoutMain)
 
         # Grupo de Pestañas 1
-        tab = QTabWidget()
+        tab = QTabWidget(tabShape=QTabWidget.TabShape.Triangular)
         LayoutMain.addWidget(tab)
          
         # Cramos primero nuestras pestaña 1 del grupo de pestañas 1

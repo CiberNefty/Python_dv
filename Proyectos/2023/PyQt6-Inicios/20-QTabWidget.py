@@ -1,5 +1,5 @@
 import sys
-from PyQt6.QtWidgets import QWidget, QApplication, QLineEdit, QHBoxLayout, QGridLayout, QTabWidget, QDateEdit, QPushButton
+from PyQt6.QtWidgets import QWidget, QApplication, QLineEdit, QVBoxLayout, QGridLayout, QTabWidget, QDateEdit, QPushButton, QLabel, QHBoxLayout
 from PyQt6.QtCore import Qt
 
 class ventanaPadre(QWidget):
@@ -10,7 +10,7 @@ class ventanaPadre(QWidget):
         #self.setGeometry(100,100,100,100)
 
         # Creamos Nuestra hoja Principal
-        LayoutMain = QHBoxLayout()
+        LayoutMain = QVBoxLayout()
         self.setLayout(LayoutMain)
 
         # Grupo de Pestañas 1
@@ -23,13 +23,28 @@ class ventanaPadre(QWidget):
         page1.setLayout(page_layoutGrid1)
         
         # Agregamos objetos de escrituras a el estilo de la hoja (pestaña) (Gridlayout)
-        page_layoutGrid1.addWidget(QLineEdit(page1),0,0, Qt.AlignmentFlag.AlignCenter)
-        
+        #page_layoutGrid1.addWidget(QLineEdit(page1),0,0, Qt.AlignmentFlag.AlignCenter)
+        page_layoutGrid1.addWidget(QLabel('Nombres: '),0,0,)
+        page_layoutGrid1.addWidget(QLineEdit(), 0,1)
+        page_layoutGrid1.addWidget(QLabel('Apellidos: '),1,0)
+        page_layoutGrid1.addWidget(QLineEdit(),1,1)
+        page_layoutGrid1.addWidget(QLabel('DOB: '), 2, 0)
+        page_layoutGrid1.addWidget(QLineEdit(),2,1)
 
         # Cramos primero nuestras pestaña 2
         page2 = QWidget(tab)
         page_layoutGrid2 = QGridLayout()
-        page2.setLayout(page_layoutGrid2)        
+        page2.setLayout(page_layoutGrid2)
+
+        # Agregamos Objetos para la pestaña 2
+        page_layoutGrid2.addWidget(QLabel('Numero de contacto: '), 0,0)
+        page_layoutGrid2.addWidget(QLineEdit(), 0, 1)
+        page_layoutGrid2.addWidget(QLabel('Correo electronico: '), 1,0)
+        page_layoutGrid2.addWidget(QLineEdit(), 1,1)
+
+        # Agregamos Botones a la pagina incial
+        LayoutMain.addWidget(QPushButton('Guardar'),1, Qt.AlignmentFlag.AlignHCenter)
+        LayoutMain.addWidget(QPushButton('Cancelar'),1,Qt.AlignmentFlag.AlignCenter)
         
         # Grupo de Pestañas 2
         tab1 = QTabWidget()

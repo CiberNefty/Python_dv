@@ -14,8 +14,10 @@ class ventanaPadre(QWidget):
         self.setLayout(LayoutMain)
 
         # Grupo de Pestañas 1
-        tab = QTabWidget(tabShape=QTabWidget.TabShape.Triangular)
+        tab = QTabWidget(tabShape=QTabWidget.TabShape.Triangular, tabPosition=QTabWidget.TabPosition.South)
         LayoutMain.addWidget(tab)
+        #tab.setTabPosition(QTabWidget.TabPosition.West)
+
          
         # Cramos primero nuestras pestaña 1 del grupo de pestañas 1
         page1 = QWidget(tab) # Contenedor

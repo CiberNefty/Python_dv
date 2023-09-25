@@ -7,14 +7,16 @@ class ventanaPadre(QWidget):
         super().__init__(*args, **kwargs)
 
         self.setWindowTitle("QTabWidget 1.1")
-        #self.setGeometry(100,100,100,100)
+        self.setGeometry(100,100,355,100)
 
         # Creamos Nuestra hoja Principal
         Layoutpadre = QGridLayout()
         self.setLayout(Layoutpadre)
 
         # Grupo de Pestañas 1
-        tab = QTabWidget(self)
+        tab = QTabWidget(self, movable=True, tabsCloseable=True) # para mover pestañas con (movable=True) para boton cerrar pestañas (tabsCloseble=True)
+        # tab.setMovable(True) # Para mover la petaña de un lado a hotro horizontal
+        #tab.setTabsClosable(True) # Para boton de cerrar pestañas
         
         # Cramos primero nuestras pestaña 1 del grupo de pestañas 1
         # Panel de informacion persona

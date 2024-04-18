@@ -7,15 +7,15 @@ esta entre 15° y 35° mostrar el mensaje “Que clima tan delicioso” c) Si el
 list_climaet = list()
 
 for d in range(1,8):
-  climaet= int(input('Ingrese la temperatura del dia {d}'))
-  list_climaet += climaet 
+  climaet= int(input(f'Ingrese la temperatura del dia {d}: '))
+  list_climaet += [climaet]
   #list_climaet.append(climaet) # metodo para anexar un elemento
   #list_climaet.insert(1, 54) # metodo para anexar un elemento (primero se agrega el numero de la posicion de la lista y luego el valor.
 
 operacion = 0
 for i in list_climaet:
-  list_climaet[i]
-  operacion += operacion + list_climaet[i]
+  list_climaet.index(i)
+  operacion += operacion + list_climaet(i)
   promedio = operacion / 7
 
 if promedio >= 15 and promedio <= 35:

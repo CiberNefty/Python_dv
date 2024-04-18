@@ -16,7 +16,8 @@ operacion = 0
 for i in list_climaet:
   list_climaet.index(i)
   operacion += operacion + list_climaet(i)
-  promedio = operacion / 7
+
+promedio = operacion / 7
 
 if promedio >= 15 and promedio <= 35:
   println('Que clima tan delicioso')

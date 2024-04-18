@@ -19,7 +19,7 @@ for i in list_climaet:
   promedio = operacion / 7
 
 if promedio >= 15 and promedio <= 35:
-  println('Que clima tan caluroso')
+  println('Que clima tan delicioso')
 elif promedio > 35:
   print('Que semana tan calurosa')
 else:

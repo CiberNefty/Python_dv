@@ -1,0 +1,20 @@
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Django
+*.sqlite3
+*.log
+media/
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/

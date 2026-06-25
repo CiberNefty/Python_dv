@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {%block title%}{% endblock %}  
+        | DANIEL VERA 
+    </title>
+    {% load static%}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <h1>Sitio Web con Django | Daniel Vera</h1>
+    <hr />
+    <ul>
+        <li>
+            <a href="/inicio">Inicio</a>
+        </li>
+        <li>
+            <a href="/hola-mundo">Hola Mundo</a>
+        </li>
+        <li>
+            <a href="/pagina-pruebas">Pagian Pruebas</a>
+        </li>
+        <li>
+            <a href="/contacto-dos">Contacto</a>
+        </li>
+    </ul>
+    <hr />
+
+    <div id="content">
+        {% block content%}
+            <strong>Esta es una etiqueta del template padre orgiginal, usando "{ {block.super} }"</strong>
+        {% endblock%}
+    </div>
+
+    <hr/>
+    <footer>
+        Master en Python usando Django, flask y Tkinter &copy; con Daniel 
+    </footer>
+</body>
+
+</html>

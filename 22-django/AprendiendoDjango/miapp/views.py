@@ -5,7 +5,6 @@ from django.shortcuts import render, HttpResponse, redirect
 # MVT = Model Template View
 
 layout = """
-
 <h1>Sitio Web con Django | Daniel Vera</h1>
 <hr/>
 <ul>
@@ -41,12 +40,14 @@ def index(request):
         year += 1
     html += "</ul>"
 
-    return HttpResponse(layout+html)
+#    return HttpResponse(layout+html)
+    return render(request, 'index.html')
 
 def hola_mundo(request):
-    return HttpResponse(layout+"""
-        <h1>Hola Mundo con DJANGO</h1>
-    <h3>Soy Daniel aqui retomando conceptos con django.</h3>""")
+#    return HttpResponse(layout+"""
+#        <h1>Hola Mundo con DJANGO</h1>
+#    <h3>Soy Daniel aqui retomando conceptos con django.</h3>""")
+    return render(request, 'hola_mundo.html')
 
 def pagina(request, redirigir=0):
 
@@ -55,11 +56,12 @@ def pagina(request, redirigir=0):
         #return redirect('/contacto/Esteban/gGomez') # A una url con parametros
         return redirect('contacto', nombre = "Felipe", apellido = 'Ibarguen') # A una url siendo mas compleja llamando parametros 
 
-    return HttpResponse(
-        layout+"""
-        <h1>Pagina de mi Web</h1>
-        <p>Creado por daniel</p>
-        """)
+    #return HttpResponse(
+    #    layout+"""
+    #    <h1>Pagina de mi Web</h1>
+    #    <p>Creado por daniel</p>
+    #    """)
+    return render(request, 'pagina.html')
 
 #def contacto (request, nombre, apellido):
 #def contacto (request, nombre="Jose", apellido="Jose"):

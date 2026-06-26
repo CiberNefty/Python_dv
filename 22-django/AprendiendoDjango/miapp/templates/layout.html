@@ -5,39 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {%block title%}{% endblock %}  
-        | DANIEL VERA 
+        {%block title%}{% endblock %}
     </title>
-    {% load static%}
+    {% load static%}    
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 
 <body>
-    <h1>Sitio Web con Django | Daniel Vera</h1>
-    <hr />
-    <ul>
-        <li>
-            <a href="/inicio">Inicio</a>
-        </li>
-        <li>
-            <a href="/hola-mundo">Hola Mundo</a>
-        </li>
-        <li>
-            <a href="/pagina-pruebas">Pagian Pruebas</a>
-        </li>
-        <li>
-            <a href="/contacto-dos">Contacto</a>
-        </li>
-    </ul>
-    <hr />
+    <!-- Cabecera de la pagina -->
+    <header>
+        <div id="logotipo">
+            <!-- Logo django -->
+             <img src="{% static 'images/logo.png' %}"/>
+            <h1>Sitio Web con Django</h1>
+        </div>
+    </header>
 
-    <div id="content">
-        {% block content%}
-            <strong>Esta es una etiqueta del template padre orgiginal, usando "{ {block.super} }"</strong>
-        {% endblock%}
+    <nav>
+        <ul>
+            <li>
+                <a href="/inicio">Inicio</a>
+            </li>
+            <li>
+                <a href="/hola-mundo">Hola Mundo</a>
+            </li>
+            <li>
+                <a href="/pagina-pruebas">Pagian Pruebas</a>
+            </li>
+            <li>
+                <a href="/contacto-dos">Contacto</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+
     </div>
 
-    <hr/>
+
+    <!-- Caja de contenido-->
+    <div id="content">
+        
+        <div class="box">
+            <h2 class="title">Titulo prueba</h2>
+            {% block content%}
+                <strong>Esta es una etiqueta del template padre orgiginal, usando "{ {block.super} }"</strong>
+            {% endblock%}
+        </div>
+    </div>
+
     <footer>
         Master en Python usando Django, flask y Tkinter &copy; con Daniel 
     </footer>

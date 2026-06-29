@@ -24,16 +24,17 @@
     <nav>
         <ul>
             <li>
-                <a href="/inicio">Inicio</a>
+                <a href="{% url 'inicio'%}">Inicio</a>
             </li>
             <li>
-                <a href="/hola-mundo">Hola Mundo</a>
+                <a href="{% url 'hola_mundo' %}">Hola Mundo</a>
             </li>
             <li>
-                <a href="/pagina-pruebas">Pagian Pruebas</a>
+                <a href="{% url 'pagina' %}">Pagian Pruebas</a>
             </li>
             <li>
-                <a href="/contacto-dos">Contacto</a>
+                <!--<a href="{% url 'contacto' 'daniel' 'vera' %}">Contacto</a> -->
+                <a href="{% url 'contacto' %}">Contacto</a>
             </li>
         </ul>
     </nav>
@@ -50,7 +51,6 @@
     <div id="content">
         
         <div class="box">
-            <h2 class="title">Titulo prueba</h2>
             {% block content%}
                 <strong>Esta es una etiqueta del template padre orgiginal, usando "{ {block.super} }"</strong>
             {% endblock%}
@@ -58,7 +58,7 @@
     </div>
 
     <footer>
-        Master en Python usando Django, flask y Tkinter &copy; con Daniel 
+        Master en Python usando Django, flask y Tkinter &copy; con Daniel - {% now 'D/M/Y --- h:m:s' %}
     </footer>
 </body>
 

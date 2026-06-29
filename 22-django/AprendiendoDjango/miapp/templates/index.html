@@ -1,10 +1,35 @@
 {% extends 'layout.html' %}
 
-{% block title %}Inicio{% endblock%}
+{% block title %}{{mi_title}}{% endblock%}
 
 {% block content %}
-<h1 class="title" >Inicio</h1>
-<p>Años hasta el 2050:</p>        
+
+<!-- Esto es un comentario que no aparece en django-->
+
+{% comment "Nota para el comentario" %}
+    <h1>Hola comentario que no se vera en la plantilla</h1>
+{% endcomment %}
+
+<h1 class="title" >{{mi_title}}</h1>
+    <!--Interpolacion-->
+    <p>{{mi_variable}}</p>
+    
+{% if nombre and nombre == 'Daniel V'%}
+    <p>Nombre: {{nombre}}</p>
+{% else %}
+    <strong>El nombre no existe ó no coincide</strong>
+{% endif %}
+
+<h3>Lista de lenguajes de progrmación:</h3>
 <ul>
+    {% for lenguaje in lenguajes %}
+<!--    <li>{{lenguaje}} {{forloop.revcounter}}</li>--> <!-- First, last, counter, counter0, revcounter0-->
+        <li>{{forloop.counter}}. {{lenguaje}}</li> <!-- First, last, counter, counter0, revcounter0-->
+    {% empty%}
+        <P>NO HYA LENGUAJES QUE MOSTRAR</P>
+    {% endfor %}
+</ul>
+
+{% include 'fecha-actual.html' with saludo='Hola mundo desde plantilla' %}
 {% endblock %}
     

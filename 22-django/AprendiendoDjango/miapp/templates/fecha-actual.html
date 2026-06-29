@@ -1,0 +1,19 @@
+<br/>
+<hr/>
+<br/>
+<h2>{{saludo}}: {{nombre}}</h2>
+<h2>Template con uso de include:  Estamos a 2026 </h1>
+
+<p>Años hasta el 2050:</p>
+<ul>
+    {% for year in years %}
+
+        {% comment "Error por valores booleanos True/False" %}
+            {%if year % 2 == 0 %}  error por % 
+            {%if year|divisibleby: 2 != 0 %}  Correcto ya que year|divisibleby:2 da resultado de True 
+        {% endcomment %}
+        {%if year|divisibleby:2 == True %}
+            <li>{{forloop.counter}}. {{year}}</li>
+        {% endif%}
+    {% endfor %}
+</ul>

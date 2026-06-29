@@ -25,12 +25,12 @@ layout = """
 """
 
 def index(request):
-
-    html = """
+    """
+    html = ""
         <h1>Inicio</h1/>
         <p>Años hasta el 2050:</p>        
         <ul>
-        """
+        ""
     
     year = 2025
 
@@ -38,10 +38,23 @@ def index(request):
         if year % 2 == 0:
             html += f"<li>{str(year)}</li>"
         year += 1
-    html += "</ul>"
+    html += "</ul>
+    """
+
+    year = 2025
+    haasta = range(year, 2051)
+
+    nombre = 'Daniel V'
+    lenguajes = ['Python','Java','Javascript','C++','PHP']
 
 #    return HttpResponse(layout+html)
-    return render(request, 'index.html')
+    return render(request, 'index.html', {
+        'mi_title':'Inicio',
+        'mi_variable': "Soy un dato que esta en la vista",
+        'nombre': nombre,
+        'lenguajes': lenguajes,
+        'years' : haasta
+    })
 
 def hola_mundo(request):
 #    return HttpResponse(layout+"""

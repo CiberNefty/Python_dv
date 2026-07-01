@@ -74,7 +74,9 @@ def pagina(request, redirigir=0):
     #    <h1>Pagina de mi Web</h1>
     #    <p>Creado por daniel</p>
     #    """)
-    return render(request, 'pagina.html')
+    return render(request, 'pagina.html',
+                  {'texto':'Este es un texto',
+                   'lista':['uno','dos','tres']})
 
 #def contacto (request, nombre, apellido):
 #def contacto (request, nombre="Jose", apellido="Jose"):

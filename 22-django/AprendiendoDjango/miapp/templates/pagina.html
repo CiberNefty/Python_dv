@@ -1,8 +1,36 @@
 {% extends 'layout.html' %}
+{% load filters %}
 
 {% block title %} Pagina Pruebas {% endblock %}
 
 {% block content %}
 <h1 class="title">Pagina de mi Web</h1>
-<p>Creado por daniel</p>
+<p>{{'Creado por daniel'|cut:"a"}}</p> <!--Filtro tuberia: |cut:"parametro"-->
+<p>
+    {{texto|default:"No hay nada"}}<!--Filtro de default para imprimir algo por si el contexto no tiene nada-->
+</p>
+<p>
+    {{lista|first}}<!--Filtro de contenido de una lista: first, last, join-->
+    {{lista|join:','}}
+</p>
+<p>
+    {{lista|length}}<!--filtro de ver cuanto es el tamaño-->
+</p>
+<p>
+    {{lista|random}}<!--filtro de ver un elemento random-->
+</p>
+<p>
+    {{"Texto de prueba"|length}}<!--Numero de elementos o caracteres de un string-->
+</p>
+<p>
+    {{"Texto de prueba"|upper}}<!--Mayusculas, Minusculas: lower-->
+</p>
+<p>
+    {{"<h1>texto</h1> <strong>Pruebas</strong>"|lower}}
+</p>
+<p>
+    {{"<h1>texto</h1> <strong>Pruebas</strong>"|striptags|wordcount}} <!--Datos sensibles, para mostrarlos de manera limpia-->
+</p>
+
+{{"Daniel Santiago"|saludo|safe}}
 {% endblock %}

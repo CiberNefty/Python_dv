@@ -113,3 +113,37 @@ def articulo(request, title):
     except:
         response = "<h1>Articulo no encontrado. Busca otro.</h1>"
     return HttpResponse(response)
+
+# Actualizar resgistros:
+def editar_articulo(request, id):
+    # Objetemos dato con get
+    articulo = Article.objects.get(pk = id)
+    
+    # Actualizar resgistros desde los datos del modelo
+    articulo.title = 'Batman'
+    articulo.content = 'Articulo de batman'
+    articulo.public = False
+
+    articulo.save()
+
+    return HttpResponse(f"Articulo {articulo.id} editado: <strong>{articulo.title}</strong>- {articulo.content}")
+
+# Mostrar todos los articurlos
+def articulos (request):
+    articulos = Article.objects.all()
+    #articulos = Article.objects.order_by('-id')
+    #articulos = Article.objects.order_by('-title')
+    #articulos = Article.objects.order_by('id')[:3]
+    #articulos = Article.objects.order_by('id')[1:4]
+
+    #return HttpResponse(articulos)
+    return render(request, 'articulos.html',{
+        'articuloss': articulos
+    })
+
+# Borrar Elementos
+def borrar_articulo(request, id):
+    articulo = Article.objects.get(pk = id)
+    articulo.delete()
+
+    return redirect('articulos')

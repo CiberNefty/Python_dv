@@ -1,4 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
+from miapp.models import Article
 
 # Create your views here.
 # MVC = Model View Contoler
@@ -87,3 +88,15 @@ def contacto (request, nombre="", apellido=""):
         html +=f"<h3>{nombre} {apellido}</h3>"
 
     return HttpResponse(layout+f"<h1>Contacto {nombre} {apellido}</h1>" +html)
+
+def crear_articulo(request):
+    # Crear objeto de tipo del modelo (tabla) para guardar registro
+    articulo = Article(
+        
+        content = "Contenido del articulo 1 prueba",
+        public = True
+    )
+    # Guardar objeto en la DB
+    articulo.save()
+
+    return HttpResponse("Articulo creado: ")

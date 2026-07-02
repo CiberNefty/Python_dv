@@ -32,4 +32,5 @@ urlpatterns = [
     path("contacto-dos/<str:nombre>/", views.contacto, name="contacto"),
     path("contacto-dos/<str:nombre>/<str:apellido>/", views.contacto, name="contacto"),
 
+    path("crear-articulo/", views.crear_articulo, name="crear_articulo"),
 ]

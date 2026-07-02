@@ -89,14 +89,27 @@ def contacto (request, nombre="", apellido=""):
 
     return HttpResponse(layout+f"<h1>Contacto {nombre} {apellido}</h1>" +html)
 
-def crear_articulo(request):
+def crear_articulo(request, title, content, public):
     # Crear objeto de tipo del modelo (tabla) para guardar registro
     articulo = Article(
-        
-        content = "Contenido del articulo 1 prueba",
-        public = True
+        title = title,
+        content = content,
+        public = public,
     )
     # Guardar objeto en la DB
     articulo.save()
 
-    return HttpResponse("Articulo creado: ")
+    return HttpResponse(f"Articulo creado: <strong>{articulo.title}</strong>- {articulo.content}")
+
+# Como sacar informacion (select)
+def articulo(request, title):
+    # Mostrar algunn articulo toca hacer una consulta a la DB haciendo uso de nuesto modelo
+    #articulo = Article.objects.get(pk = 6)
+    #articulo = Article.objects.get(id = 6)
+    #articulo = Article.objects.get(title = "Titulo 1 Prueba")
+    try:
+        articulo = Article.objects.get(title = title, public = False)
+        response = F"Articulo: <br/>{articulo.id}.{articulo.title}"
+    except:
+        response = "<h1>Articulo no encontrado. Busca otro.</h1>"
+    return HttpResponse(response)

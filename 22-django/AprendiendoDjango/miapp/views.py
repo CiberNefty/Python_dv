@@ -136,6 +136,21 @@ def articulos (request):
     #articulos = Article.objects.order_by('id')[:3]
     #articulos = Article.objects.order_by('id')[1:4]
 
+    #  Consultas con condiciones
+    # articulos = Article.objects.filter(title = "Batman", id = 3)
+    # articulos = Article.objects.filter(title__contains = "articulo") # SQL == (LIKE)
+    # articulos = Article.objects.filter(title__exact = "articulo") 
+    # articulos = Article.objects.filter(title__iexact = "articulo") 
+    #articulos = Article.objects.filter(id__gte=9) # mayor igual a 
+    articulos = Article.objects.filter(id__lte=9) # menores iguales a
+
+    articulos = Article.objects.filter(
+                                        title__contains = 'Articulo',
+                                    ).exclude(
+                                        public = False
+                                    )
+
+
     #return HttpResponse(articulos)
     return render(request, 'articulos.html',{
         'articuloss': articulos

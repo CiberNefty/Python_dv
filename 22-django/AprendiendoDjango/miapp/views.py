@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from miapp.models import Article
+from django.db.models import Q
 
 # Create your views here.
 # MVC = Model View Contoler
@@ -143,15 +144,19 @@ def articulos (request):
     # articulos = Article.objects.filter(title__iexact = "articulo") 
     #articulos = Article.objects.filter(id__gte=9) # mayor igual a 
     articulos = Article.objects.filter(id__lte=9) # menores iguales a
-
+    articulos = Article.objects.filter(
+        #Q(title__contains = "2") | Q(title__contains = "3")
+        Q(title__contains = "2") | Q(public = True)
+    ) # OR (from django.db.models import Q)
+    """
     articulos = Article.objects.filter(
                                         title__contains = 'Articulo',
                                     ).exclude(
                                         public = False
                                     )
-    
+    """
     # CONSULTAS CRUDAS CON DJANGO
-    articulos = Article.objects.raw("SELECT * FROM miapp_article WHERE title = 'Articulo 2' AND public = 1 ")
+    # articulos = Article.objects.raw("SELECT * FROM miapp_article WHERE title = 'Articulo 2' AND public = 1 ")
 
     #return HttpResponse(articulos)
     return render(request, 'articulos.html',{

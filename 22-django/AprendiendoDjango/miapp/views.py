@@ -149,7 +149,9 @@ def articulos (request):
                                     ).exclude(
                                         public = False
                                     )
-
+    
+    # CONSULTAS CRUDAS CON DJANGO
+    articulos = Article.objects.raw("SELECT * FROM miapp_article WHERE title = 'Articulo 2' AND public = 1 ")
 
     #return HttpResponse(articulos)
     return render(request, 'articulos.html',{

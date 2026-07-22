@@ -102,6 +102,40 @@ def crear_articulo(request, title, content, public):
 
     return HttpResponse(f"Articulo creado: <strong>{articulo.title}</strong>- {articulo.content}")
 
+def save_article(request): # Esta funcion sera enviada por medio de un formulario es igual a la funcion de arriba
+
+    # Comprobar que nos llegan datos por GET
+
+    if request.method == 'GET':
+        # Recibimos datos
+        title = request.GET['title']
+
+        # Podemos hacer validaciones Manuales
+        if len(title) <= 5:
+            return HttpResponse("El titulo es muy pequeño")
+
+        content = request.GET['content']
+        public = request.GET['public']
+
+        articulo = Article(
+            title = title,
+            content = content,
+            public = public,
+        )
+        # Guardar objeto en la DB
+        articulo.save()
+
+        return HttpResponse(f"Articulo creado: <strong>{articulo.title}</strong>- {articulo.content}")
+
+    else:
+        return HttpResponse("<h2>No se ha podido crear el articulo.</h2>")
+
+def create_article(request): # Esta funcion va a dar soporte para visualizar una plantilla
+
+
+
+    return render(request, 'create_article.html')
+
 # Como sacar informacion (select)
 def articulo(request, title):
     # Mostrar algunn articulo toca hacer una consulta a la DB haciendo uso de nuesto modelo
@@ -131,8 +165,8 @@ def editar_articulo(request, id):
 
 # Mostrar todos los articurlos
 def articulos (request):
-    articulos = Article.objects.all()
-    #articulos = Article.objects.order_by('-id')
+    #articulos = Article.objects.all()
+    articulos = Article.objects.all().order_by('-id')
     #articulos = Article.objects.order_by('-title')
     #articulos = Article.objects.order_by('id')[:3]
     #articulos = Article.objects.order_by('id')[1:4]
@@ -143,11 +177,13 @@ def articulos (request):
     # articulos = Article.objects.filter(title__exact = "articulo") 
     # articulos = Article.objects.filter(title__iexact = "articulo") 
     #articulos = Article.objects.filter(id__gte=9) # mayor igual a 
+    """
     articulos = Article.objects.filter(id__lte=9) # menores iguales a
     articulos = Article.objects.filter(
         #Q(title__contains = "2") | Q(title__contains = "3")
         Q(title__contains = "2") | Q(public = True)
     ) # OR (from django.db.models import Q)
+    """
     """
     articulos = Article.objects.filter(
                                         title__contains = 'Articulo',

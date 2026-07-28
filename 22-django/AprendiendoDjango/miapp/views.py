@@ -139,7 +139,32 @@ def create_article(request): # Esta funcion va a dar soporte para visualizar una
 # Funcion para formulario de django (forms.py)
 def create_full_article(request):
 
-    formulario = FormularioArticle()
+    # COMPROBAR SI NOS LLEGAN DATOS DE NUESTRO FORMULARIO POR POST
+    if request.method == 'POST':
+        formulario = FormularioArticle(request.POST)
+
+        if formulario.is_valid():
+            data_form = formulario.cleaned_data
+
+            title = data_form.get("title")
+            content = data_form["content"]
+            public = data_form["public"]
+
+            articulo = Article(
+                        title = title,
+                        content = content,
+                        public = public,
+            )
+            # Guardar objeto en la DB
+            articulo.save()
+
+            return redirect("articulos")
+            #return HttpResponse(title+" - "+content+" - "+ str(public))
+
+
+    else:
+        # Si no llega generamos un formulario vacio   
+        formulario = FormularioArticle()
 
     return render(request, 'create_full_article.html',
                   {'form':formulario})

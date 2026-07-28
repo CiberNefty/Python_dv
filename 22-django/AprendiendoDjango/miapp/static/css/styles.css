@@ -198,3 +198,11 @@ footer{
 .rojo{
     color: red;
 }
+
+.message{
+    padding: 20px;
+    background: #2ba977;
+    color: white;
+    text-align: center;
+    margin-bottom: 10px;
+}

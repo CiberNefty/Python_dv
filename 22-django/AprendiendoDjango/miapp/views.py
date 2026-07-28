@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, redirect
 from miapp.models import Article
 from django.db.models import Q
 from miapp.forms import FormularioArticle
+from django.contrib import messages
 # Create your views here.
 # MVC = Model View Contoler
 # MVT = Model Template View
@@ -157,6 +158,9 @@ def create_full_article(request):
             )
             # Guardar objeto en la DB
             articulo.save()
+
+            # Crear Mensaje flash (sesion que solo se muestra 1 vez)
+            messages.success(request, f'Has creado correctamente el articulo {articulo.id}')
 
             return redirect("articulos")
             #return HttpResponse(title+" - "+content+" - "+ str(public))

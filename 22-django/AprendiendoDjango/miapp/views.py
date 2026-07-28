@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from miapp.models import Article
 from django.db.models import Q
-
+from miapp.forms import FormularioArticle
 # Create your views here.
 # MVC = Model View Contoler
 # MVT = Model Template View
@@ -106,16 +106,16 @@ def save_article(request): # Esta funcion sera enviada por medio de un formulari
 
     # Comprobar que nos llegan datos por GET
 
-    if request.method == 'GET':
+    if request.method == 'POST':
         # Recibimos datos
-        title = request.GET['title']
+        title = request.POST['title']
 
         # Podemos hacer validaciones Manuales
         if len(title) <= 5:
             return HttpResponse("El titulo es muy pequeño")
 
-        content = request.GET['content']
-        public = request.GET['public']
+        content = request.POST['content']
+        public = request.POST['public']
 
         articulo = Article(
             title = title,
@@ -135,6 +135,14 @@ def create_article(request): # Esta funcion va a dar soporte para visualizar una
 
 
     return render(request, 'create_article.html')
+
+# Funcion para formulario de django (forms.py)
+def create_full_article(request):
+
+    formulario = FormularioArticle()
+
+    return render(request, 'create_full_article.html',
+                  {'form':formulario})
 
 # Como sacar informacion (select)
 def articulo(request, title):
